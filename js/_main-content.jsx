@@ -4,6 +4,20 @@ import FilmContent from './_film-content.jsx'
 
 
 class MainContentHeader extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: this.props.value
+        }
+    }
+
+    handleChange = (e) => {
+        console.log(e.target.value);
+        if(typeof this.props.sortMainArray === 'function') {
+            this.props.sortMainArray(e.target.value)
+        }
+    };
+
     render() {
         return (
             <div className="main-content-header">
@@ -11,11 +25,13 @@ class MainContentHeader extends React.Component {
                 <div className="sort">
                     <label htmlFor="sort">sortuj wg:
                         <div className="custom-select">
-                            <select name="sort" id="sort">
+                            <select name="sort" id="sort"
+                                    onChange={e => this.handleChange(e)}
+                                    value={this.state.value}>
                                 <option value="-">-</option>
                                 <option value="az">A-Z</option>
-                                <option value="rate">oceny</option>
-                                <option value="year">roku produkcji</option>
+                                <option value="rate">oceny (malejąco)</option>
+                                <option value="year">roku produkcji (malejąco)</option>
                             </select>
                         </div>
                     </label>
@@ -35,11 +51,50 @@ class MainContent extends React.Component {
         }
     }
 
+    sortMainArray = (key) => {
+        let sortedArray = [...this.props.mainArray];
+
+        if(key === 'rate' || key === 'year') {
+
+            const sortFilms = (arr, key) => {       //sortowanie - rate, year
+                arr.sort((a,b) => {
+                    let x = a[key];
+                    let y = b[key];
+                    return y - x;
+                })
+            };
+            sortFilms(sortedArray, key);
+
+        } else if (key === 'az') {
+            const sortFilms = (a, b) => {           //sortowanie od A do Z
+                let x = a.title.toUpperCase();
+                let y = b.title.toUpperCase();
+                let comparison = 0;
+                if (x > y) {
+                    comparison = 1;
+                } else if (x < y) {
+                    comparison = -1;
+                }
+                return comparison;
+            };
+            sortedArray.sort(sortFilms);
+        }
+
+
+        this.setState({
+            mainArray: sortedArray
+        })
+    };
+
     render() {
+
+        console.log(this.props.mainArray);
+        console.log(this.state.mainArray);
+
         return (
             <div className="main-content">
-                <MainContentHeader/>
-                <FilmContent mainArray={this.props.mainArray}/>
+                <MainContentHeader sortMainArray={this.sortMainArray}/>
+                <FilmContent mainArray={this.state.mainArray}/>
             </div>
         );
     }

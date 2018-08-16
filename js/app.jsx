@@ -44,6 +44,15 @@ class App extends React.Component {
             mainArray.push(el);
         }
 
+        const sortFilms = (arr, key) => {       //sortowanie od ostatnio dodanego (domyślne)
+            arr.sort((a,b) => {
+                let x = a[key];
+                let y = b[key];
+                return y - x;
+            })
+        };
+        sortFilms(mainArray, "id");
+
         return (
             <div>
                 <PageHeader />

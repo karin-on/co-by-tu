@@ -12,16 +12,6 @@ class FilmContent extends React.Component {
     render() {
         let mainArray = this.props.mainArray;
 
-        const sortFilms = (arr, key) => {       //sortowanie od ostatnio dodanego (domyślne)
-            arr.sort((a,b) => {
-                let x = a[key];
-                let y = b[key];
-                return y - x;
-            })
-        };
-        sortFilms(mainArray, "id");
-
-
         let films = [];
 
         for (let i = 0; i < mainArray.length; i++) {
