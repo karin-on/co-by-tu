@@ -30,11 +30,25 @@ class FilmContent extends React.Component {
                     <div className="film-poster" style={{backgroundImage: `url(${mainArray[i].poster})`}}></div>
                 </div>
                 <div className="film-description">
-                    <h4 className="film-title">{mainArray[i].title}</h4>
-                    <p>reż.: <span className="film-director">{mainArray[i].director}</span></p>
-                    <p>rok prod.: <span className="film-prod-year">{mainArray[i].year}</span></p>
-                    <p><i className="fa fa-star" aria-hidden="true"></i> <span
-                        className="film-rate">{mainArray[i].rate}</span></p>
+                    <h4 className="film-title">
+                        {mainArray[i].title}
+                    </h4>
+                    <p>reż.: <span className="film-director">
+                        {mainArray[i].director.length <= 21 ?
+                            mainArray[i].director :
+                            mainArray[i].director.substring(0, 19) + '...'}
+                        </span>
+                    </p>
+                    <p>rok prod.: <span className="film-prod-year">
+                        {mainArray[i].year}
+                        </span>
+                    </p>
+                    <p>
+                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <span className="film-rate">
+                            {` ${mainArray[i].rate}`}
+                        </span>
+                    </p>
                 </div>
             </div>;
 
