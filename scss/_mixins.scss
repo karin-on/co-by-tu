@@ -1,0 +1,54 @@
+@mixin btn {
+  height: 30px;
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+@mixin film-card {
+  width: 160px;
+  height: 300px;
+  padding: 3px;
+  margin: 4px;
+  border: 1px solid transparent;
+
+  &:hover {
+    border: 1px solid #bbbbbb;
+  }
+
+  .film-poster-container {
+    width: 152px;
+    height: 215px;
+    overflow: hidden;
+  }
+
+  .film-poster {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.5s all;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  .film-description {
+    padding-left: 2px;
+  }
+
+  h4 {
+    font-weight: 400;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 300;
+  }
+}
+

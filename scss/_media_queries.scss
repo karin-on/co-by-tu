@@ -1,0 +1,117 @@
+//---------------------------------- 1921 ------------------------------------
+@media (max-width: 1921px) {
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+}
+
+//---------------------------------- 1201 ------------------------------------
+@media (max-width: 1201px) {
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .filters ul {
+    font-size: 14px;
+  }
+  .filters li {
+    margin: 7px 0;
+  }
+  .subnote {
+    font-size: 12px;
+  }
+}
+
+//---------------------------------- 1025 ------------------------------------
+@media (max-width: 1025px) {
+  .container {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  .page-nav-list {
+    width: 350px;
+  }
+
+  .filters {
+    width: 25%;
+  }
+}
+
+//---------------------------------- 861 ------------------------------------
+@media (max-width: 861px) {
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+//---------------------------------- 769 ------------------------------------
+@media (max-width: 769px) {
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    height: 100px;
+  }
+
+  .page-logo-link {
+    font-size: 35px;
+  }
+
+  .page-nav-list {
+    width: 300px;
+
+    a {
+      font-size: 16px;
+    }
+  }
+
+  .filters {
+    width: 40%;
+
+    button {
+      height: 28px;
+      width: 33px;
+      font-size: 10px;
+    }
+  }
+
+  .main-content-header {
+    padding: 0 55px 0 10px;
+    //border: 1px solid aqua;
+  }
+
+  .sort {
+    .custom-select {
+      width: 100px;
+      right: -113px;
+    }
+  }
+
+  .clear-filters-btn {
+    @include btn;
+    font-size: 13px;
+    width: 100px;
+  }
+}
+
+//---------------------------------- 681 ------------------------------------
+@media (max-width: 681px) {
+  .container {
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  .main-content-header {
+    padding: 0 25px 0 10px;
+    //border: 1px solid aqua;
+  }
+}
+
+//641 -----------> tutaj już przenieść filtry (rozwijane) nad filmy
+

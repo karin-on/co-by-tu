@@ -1,0 +1,14 @@
+//----------------------- MIDDLE SECTION -------------------------
+
+.middle-section {
+  //border: 1px solid red;
+  padding: 100px 0;
+}
+
+.middle-section .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+  //border: 1px solid blue;
+}

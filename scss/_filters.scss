@@ -1,0 +1,127 @@
+@import "mixins";
+
+//----------------------- filters -------------------------
+.filters {
+  width: 20%;
+  //border: 1px solid green;
+  //border-right: 1px solid #c1c2c3;
+  padding-right: 10px;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.filters ul {
+  list-style: none;
+}
+
+.filters-title {
+  //border: 1px solid deeppink;
+  //padding: 10px;
+  margin-top: 2px;
+  margin-bottom: 44px;
+  border-bottom: 1px solid black;
+  display: inline-block;
+}
+
+.filters-section-genre,
+.filters-section-topics,
+.filters-section-feeling {
+  //border: 1px solid aqua;
+  padding: 10px;
+}
+
+.filters-genre-title,
+.filters-topics-title,
+.filters-feeling-title {
+  font-weight: 700;
+}
+
+.genre-list,
+.topics-list,
+.feeling-list {
+  //border: 1px solid red;
+  padding: 10px 5px;
+}
+
+.filters li {
+  margin: 3px 0;
+}
+
+//----------------------- checkbox -------------------------
+.filters-checkbox {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  input {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+  }
+
+}
+
+.filters-checkbox {
+
+  input + span {
+    flex-shrink: 0;
+    margin-right: 5px;
+    display: block;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #bbbbbb;
+    position: relative;
+  }
+
+  input:hover + span {
+    border: 1px solid deeppink;
+  }
+
+  input + span:after {
+    content: '';
+    background: url("../images/tick_32x32.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: 0.5s all;
+    opacity: 0;
+  }
+
+  input:checked + span:after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+//----------------------------------------------------------
+
+.filters-button-row {
+  display: flex;
+  justify-content: flex-end;
+
+  button {
+    @include btn;
+
+    width: 35px;
+    margin: 0 10px;
+    font-size: 12px;
+  }
+}
+
+.subnote {
+  display: inline;
+  font-size: 14px;
+  margin-left: 24px;
+}
+
+

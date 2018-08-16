@@ -1,0 +1,48 @@
+.page-header {
+  width: 100vw;
+  height: 120px;
+  background-color: black;
+
+  & .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%; /*muszę nadać wysokość, zeby zadzialalo align-items*/
+    //border: 1px solid blue;
+  }
+}
+
+.page-logo {
+  margin: 0; /*czyszcze margines domyślny z h1*/
+  padding: 0;
+}
+
+.page-logo-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 200;
+  font-size: 40px;
+}
+
+.page-nav-list {
+  //border: 1px solid red;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 15px;
+
+  li {
+    display: inline-block;
+    padding: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: 200;
+    font-size: 18px;
+    padding: 5px;
+  }
+}
+
