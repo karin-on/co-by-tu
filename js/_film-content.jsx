@@ -1,45 +1,16 @@
 import React from 'react';
-import firebase from 'firebase/app';
-import 'firebase/database';
-
-// Initialize Firebase
-const config = {
-    apiKey: "AIzaSyDh6U4szlRbHN-iJDc3ZEROI5XOWNcxYk8",
-    authDomain: "fir-test-5bca3.firebaseapp.com",
-    databaseURL: "https://fir-test-5bca3.firebaseio.com",
-    projectId: "fir-test-5bca3",
-    storageBucket: "fir-test-5bca3.appspot.com",
-    messagingSenderId: "287567113055"
-};
-firebase.initializeApp(config);
-const db = firebase.database().ref();
 
 
 class FilmContent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            mainObject: {}
+            mainArray: this.props.mainArray
         }
-    }
-
-    componentDidMount() {
-        db.on('value', snap => {
-            this.setState({
-                mainObject: snap.val()
-            })
-        });
     }
 
     render() {
-        // console.log(this.state.mainObject.film1);
-
-        //zamiana obiektu obiektów na tablicę obiektów
-        let mainArray = [];
-        for(let key in this.state.mainObject) {
-            let el = this.state.mainObject[key];
-            mainArray.push(el);
-        }
+        let mainArray = this.props.mainArray;
 
         const sortFilms = (arr, key) => {       //sortowanie od ostatnio dodanego (domyślne)
             arr.sort((a,b) => {

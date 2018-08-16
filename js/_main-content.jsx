@@ -42,11 +42,18 @@ class MainContentHeader extends React.Component {
 }
 
 class MainContent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            mainArray: this.props.mainArray
+        }
+    }
+
     render() {
         return (
             <div className="main-content">
                 <MainContentHeader/>
-                <FilmContent/>
+                <FilmContent mainArray={this.props.mainArray}/>
             </div>
         );
     }
