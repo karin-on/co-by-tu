@@ -52,3 +52,10 @@
   }
 }
 
+@mixin page-header-after {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  height: 1px;
+  background-color: #00e4ff;
+}

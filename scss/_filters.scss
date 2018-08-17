@@ -78,7 +78,7 @@
   }
 
   input:hover + span {
-    border: 1px solid deeppink;
+    border: 1px solid #00e4ff;
   }
 
   input + span:after {
@@ -115,6 +115,11 @@
     width: 35px;
     margin: 0 10px;
     font-size: 12px;
+
+    &:hover,
+    &:focus {
+      border: 1px solid #00e4ff;
+    }
   }
 }
 
