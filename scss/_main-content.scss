@@ -38,6 +38,11 @@
     right: -135px;
     bottom: -6px;
 
+    &:hover,
+    &:focus {
+      border: 1px solid #00e4ff;
+    }
+
     select {
       width: 100%;
       height: 100%;
@@ -51,6 +56,11 @@
 .clear-filters-btn {
   @include btn;
   width: 120px;
+
+  &:hover,
+  &:focus {
+    border: 1px solid #00e4ff;
+  }
 }
 
 .film-content {

@@ -1,7 +1,11 @@
+@import "mixins";
+
 .page-header {
   width: 100vw;
   height: 120px;
   background-color: black;
+  position: fixed;
+  z-index: 99999999;
 
   & .container {
     display: flex;
@@ -15,6 +19,18 @@
 .page-logo {
   margin: 0; /*czyszcze margines domyślny z h1*/
   padding: 0;
+  position: relative;
+
+  &:hover {
+    &:after {
+      @include page-header-after;
+
+      bottom: -11px;
+      left: -2px;
+      width: 173px;
+      animation: lineAnim 0.15s;
+    }
+  }
 }
 
 .page-logo-link {
@@ -22,7 +38,18 @@
   text-decoration: none;
   font-weight: 200;
   font-size: 40px;
+  padding: 10px;
 }
+
+@keyframes lineAnim {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
 
 .page-nav-list {
   //border: 1px solid red;
@@ -34,7 +61,8 @@
 
   li {
     display: inline-block;
-    padding: 10px;
+    padding: 15px;
+    position: relative;
   }
 
   a {
@@ -42,7 +70,45 @@
     color: white;
     font-weight: 200;
     font-size: 18px;
-    padding: 5px;
+    padding: 10px;
+    position: relative;
   }
+
+  li:first-child {
+    &:hover {
+      &:after {
+        @include page-header-after;
+
+        bottom: 0;
+        left: 19px;
+        width: 43px;
+      }
+    }
+  }
+
+  li:nth-child(2) {
+    &:hover {
+      &:after {
+        @include page-header-after;
+
+        bottom: 0;
+        left: 19px;
+        width: 116px;
+      }
+    }
+  }
+
+  li:nth-child(3) {
+    &:hover {
+      &:after {
+        @include page-header-after;
+
+        bottom: 0;
+        left: 20px;
+        width: 90px;
+      }
+    }
+  }
+
 }
 
