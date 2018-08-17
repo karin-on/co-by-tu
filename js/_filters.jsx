@@ -73,38 +73,27 @@ class TopicsForm extends React.Component {
     }
 }
 
-class GenreForm extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         valuesChecked: [],
-    //         checked: false
-    //     }
-    // }
 
-    // handleChange = (e) => {
-    //     this.setState({
-    //         valuesChecked: [...this.state.valuesChecked, e.target.value],
-    //         checked: !this.state.checked
-    //     });
-    // };
-
-    handleSubmit = (e) => {
-        e.preventDefault();
-        // if(this.state.checked === true && typeof this.props.filterFilms === 'function') {
-        //     this.props.filterFilms(this.state.valuesChecked);
-        // }
-
-        for (let i = 0; i < e.length; i++) {
-            const eElement = e[i];
-
+class GenreCheckboxes extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            boxesChanged: []
         }
+    }
 
+    handleChange = (e) => {
+        this.setState({
+            boxesChanged: e.target.checked === true ?
+                [...this.state.boxesChanged, e.target] :
+                [...this.state.boxesChanged]
+        });
+        if(typeof this.props.getValuesChecked === 'function') {
+            this.props.getValuesChecked([...this.state.boxesChanged, e.target]);
+        }
     };
 
     render() {
-        // console.log(this.state.checked);
-
         let genreCheckboxes = [];
         for (let i = 0; i < genreArr.length; i++) {
             let li = <li key={`genre-${i}`}>
@@ -112,7 +101,7 @@ class GenreForm extends React.Component {
                     <input type="checkbox"
                            name="genre"
                            value={genreArr[i].value}
-                           // checked={this.state.checked}
+                        // checked={this.state.checked}
                            onChange={e => this.handleChange(e)}/>
                     <span></span>
                     {genreArr[i].txt}
@@ -121,13 +110,36 @@ class GenreForm extends React.Component {
             genreCheckboxes.push(li);
         }
 
+        return <ul className="genre-list">
+            {genreCheckboxes}
+            </ul>
+    }
+}
+
+class GenreForm extends React.Component {
+    getValuesChecked = (arr) => {
+        let values = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].checked) {
+                values.push(arr[i].value)
+            }
+        }
+        console.log(values);
+    };
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+    };
+
+    render() {
         return (
             <div className="filters-section-genre">
                 <h4 className="filters-genre-title">gatunki</h4>
                 <form className="genre-form" onSubmit={e => this.handleSubmit(e)}>
-                    <ul className="genre-list">
-                        {genreCheckboxes}
-                    </ul>
+
+                        <GenreCheckboxes getValuesChecked={this.getValuesChecked}/>
+
                     <div className="filters-button-row">
                         <button type="submit">OK</button>
                     </div>
@@ -138,40 +150,13 @@ class GenreForm extends React.Component {
 }
 
 class Filters extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            valuesChecked: [],
-            checked: ''
-        }
-    }
-    //
-    // handleChange = (e) => {
-    //     let arr = [...this.state.valuesChecked];
-    //     if(e.target.checked) {
-    //         arr.push(e.target.value);
-    //     }
-    //     console.log(arr);
-    //
-    //
-    //     // this.setState({
-    //     //
-    //     // });
-    //
-    // };
-    //
 
     filterFilms = (value) => {
         console.log(value);
 
-        // this.setState({
-        //     valuesChecked: [...this.state.valuesChecked, value]
-        // });
     };
 
     render() {
-        console.log(this.state.valuesChecked);
-
         return (
             <div className="filters">
                 <h3 className="filters-title">filtruj</h3>
