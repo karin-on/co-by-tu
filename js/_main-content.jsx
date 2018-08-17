@@ -12,7 +12,7 @@ class MainContentHeader extends React.Component {
     }
 
     handleChange = (e) => {
-        console.log(e.target.value);
+        // console.log(e.target.value);
         if(typeof this.props.sortMainArray === 'function') {
             this.props.sortMainArray(e.target.value)
         }
@@ -47,7 +47,8 @@ class MainContent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            mainArray: this.props.mainArray
+            mainArray: this.props.mainArray,
+            selectActive: 0
         }
     }
 
@@ -80,21 +81,20 @@ class MainContent extends React.Component {
             sortedArray.sort(sortFilms);
         }
 
-
         this.setState({
-            mainArray: sortedArray
+            mainArray: sortedArray,
+            selectActive: 1
         })
     };
 
     render() {
-
-        console.log(this.props.mainArray);
-        console.log(this.state.mainArray);
+        // console.log(this.props.mainArray);
+        // console.log(this.state.mainArray);
 
         return (
             <div className="main-content">
                 <MainContentHeader sortMainArray={this.sortMainArray}/>
-                <FilmContent mainArray={this.state.mainArray}/>
+                <FilmContent mainArray={this.state.selectActive === 1 ? this.state.mainArray : this.props.mainArray}/>
             </div>
         );
     }
