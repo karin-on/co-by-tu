@@ -1,12 +1,31 @@
 import React from 'react';
 
-import genreArr from './_filters-genre-checkboxes';
 import feelingArr from './_filters-feeling-checkboxes';
 import topicsArr from './_filters-topics-checkboxes';
+import genreArr from './_filters-genre-checkboxes';
 import MiddleSection from './_middle-section.jsx';
 
+//-------------------------------------- Feeling --------------------------------------
 
-class FeelingForm extends React.Component {
+class FeelingCheckboxes extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            boxesChanged: []
+        }
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            boxesChanged: e.target.checked === true ?
+                [...this.state.boxesChanged, e.target] :
+                [...this.state.boxesChanged]
+        });
+        if(typeof this.props.getValuesChecked === 'function') {
+            this.props.getValuesChecked([...this.state.boxesChanged, e.target]);
+        }
+    };
+
     render() {
         let feelingCheckboxes = [];
         for (let i = 0; i < feelingArr.length; i++) {
@@ -15,8 +34,7 @@ class FeelingForm extends React.Component {
                     <input type="checkbox"
                            name="feeling"
                            value={feelingArr[i].value}
-                           // checked={this.state.checked}
-                    />
+                           onChange={e => this.handleChange(e)}/>
                     <span></span>
                     {feelingArr[i].txt}
                 </label>
@@ -24,13 +42,50 @@ class FeelingForm extends React.Component {
             feelingCheckboxes.push(li);
         }
 
-        return(
+        return <ul className="feeling-list">
+            {feelingCheckboxes}
+        </ul>
+    }
+}
+
+class FeelingForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            valuesChecked: []
+        }
+    }
+
+    getValuesChecked = (arr) => {
+        let values = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].checked) {
+                values.push(arr[i].value)
+            }
+        }
+
+        this.setState({
+            valuesChecked: values
+        });
+    };
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        if(typeof this.props.getChosenFilters === 'function') {
+            this.props.getChosenFilters(this.state.valuesChecked);
+        }
+        e.target.reset();
+    };
+
+    render() {
+        return (
             <div className="filters-section-feeling">
                 <h4 className="filters-feeling-title">mam ochotę na...</h4>
-                <form className="feeling-form">
-                    <ul className="feeling-list">
-                        {feelingCheckboxes}
-                    </ul>
+                <form className="feeling-form" onSubmit={e => this.handleSubmit(e)}>
+
+                    <FeelingCheckboxes getValuesChecked={this.getValuesChecked}/>
+
                     <div className="filters-button-row">
                         <input type="submit" value='OK'></input>
                     </div>
@@ -40,7 +95,28 @@ class FeelingForm extends React.Component {
     }
 }
 
-class TopicsForm extends React.Component {
+
+//-------------------------------------- Topics --------------------------------------
+
+class TopicsCheckboxes extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            boxesChanged: []
+        }
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            boxesChanged: e.target.checked === true ?
+                [...this.state.boxesChanged, e.target] :
+                [...this.state.boxesChanged]
+        });
+        if(typeof this.props.getValuesChecked === 'function') {
+            this.props.getValuesChecked([...this.state.boxesChanged, e.target]);
+        }
+    };
+
     render() {
         let topicsCheckboxes = [];
         for (let i = 0; i < topicsArr.length; i++) {
@@ -49,8 +125,7 @@ class TopicsForm extends React.Component {
                     <input type="checkbox"
                            name="topics"
                            value={topicsArr[i].value}
-                           // checked={this.state.checked}
-                    />
+                           onChange={e => this.handleChange(e)}/>
                     <span></span>
                     {topicsArr[i].txt}
                 </label>
@@ -58,13 +133,50 @@ class TopicsForm extends React.Component {
             topicsCheckboxes.push(li);
         }
 
+        return <ul className="topics-list">
+            {topicsCheckboxes}
+        </ul>
+    }
+}
+
+class TopicsForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            valuesChecked: []
+        }
+    }
+
+    getValuesChecked = (arr) => {
+        let values = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].checked) {
+                values.push(arr[i].value)
+            }
+        }
+
+        this.setState({
+            valuesChecked: values
+        });
+    };
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+
+        if(typeof this.props.getChosenFilters === 'function') {
+            this.props.getChosenFilters(this.state.valuesChecked);
+        }
+        e.target.reset();
+    };
+
+    render() {
         return (
             <div className="filters-section-topics">
                 <h4 className="filters-topics-title">tematy</h4>
-                <form className="topics-form">
-                    <ul className="topics-list">
-                        {topicsCheckboxes}
-                    </ul>
+                <form className="topics-form" onSubmit={e => this.handleSubmit(e)}>
+
+                    <TopicsCheckboxes getValuesChecked={this.getValuesChecked}/>
+
                     <div className="filters-button-row">
                         <input type="submit" value='OK'></input>
                     </div>
@@ -74,6 +186,7 @@ class TopicsForm extends React.Component {
     }
 }
 
+//-------------------------------------- Genre --------------------------------------
 
 class GenreCheckboxes extends React.Component {
     constructor(props) {
@@ -102,7 +215,6 @@ class GenreCheckboxes extends React.Component {
                     <input type="checkbox"
                            name="genre"
                            value={genreArr[i].value}
-                        // checked={this.state.checked}
                            onChange={e => this.handleChange(e)}/>
                     <span></span>
                     {genreArr[i].txt}
@@ -140,7 +252,7 @@ class GenreForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        // console.log(this.state.valuesChecked);
+
         if(typeof this.props.getChosenFilters === 'function') {
             this.props.getChosenFilters(this.state.valuesChecked);
         }
@@ -188,8 +300,8 @@ class Filters extends React.Component {
             <div className="filters">
                 <h3 className="filters-title">filtruj</h3>
 
-                <FeelingForm />
-                <TopicsForm />
+                <FeelingForm getChosenFilters={this.getChosenFilters}/>
+                <TopicsForm getChosenFilters={this.getChosenFilters}/>
                 <GenreForm getChosenFilters={this.getChosenFilters}/>
 
             </div>

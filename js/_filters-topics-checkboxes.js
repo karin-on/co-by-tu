@@ -18,9 +18,5 @@ module.exports = [
     {
         txt: 'odżywianie',
         value: 'nutrition'
-    },
-    {
-        txt: 'sport',
-        value: 'sport'
     }
 ];
