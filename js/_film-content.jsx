@@ -2,12 +2,12 @@ import React from 'react';
 
 
 class FilmContent extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            mainArray: this.props.mainArray
-        }
-    }
+    // constructor(props) {            //states raczej niepotrzebne, bo nie zmieniam tu ni w tablicy filmów, jedynie je wyświetlam
+    //     super(props);
+    //     this.state = {
+    //         mainArray: this.props.mainArray
+    //     }
+    // }
 
     render() {
         let mainArray = this.props.mainArray;
@@ -17,7 +17,8 @@ class FilmContent extends React.Component {
         for (let i = 0; i < mainArray.length; i++) {
             let div = <div className="film-card" key={i}>
                 <div className="film-poster-container">
-                    <div className="film-poster" style={{backgroundImage: `url(${mainArray[i].poster})`}}></div>
+                    <div className="film-poster"
+                         style={{backgroundImage: `url(${mainArray[i].poster})`}}></div>
                 </div>
                 <div className="film-description">
                     <h4 className="film-title">

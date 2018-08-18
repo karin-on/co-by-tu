@@ -109,7 +109,7 @@
   display: flex;
   justify-content: flex-end;
 
-  button {
+  input {
     @include btn;
 
     width: 35px;

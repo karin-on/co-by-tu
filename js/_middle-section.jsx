@@ -7,17 +7,30 @@ class MiddleSection extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            mainArray: this.props.mainArray
+            mainArray: this.props.mainArray,
+            activeFilters: []
         }
     }
 
+    getFilters = (arr) => {
+        // console.log(arr);
+
+        this.setState({
+            activeFilters: arr
+        })
+    };
+
+
     render() {
+        // console.log(this.state.filteredArray);
+
         return (
             <section className="middle-section">
                 <div className="container">
 
-                    <Filters />
-                    <MainContent mainArray={this.props.mainArray}/>
+                    <Filters getFilters={this.getFilters}/>
+                    <MainContent mainArray={this.props.mainArray}
+                                 activeFilters={this.state.activeFilters}/>
 
                 </div>
             </section>

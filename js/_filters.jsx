@@ -31,7 +31,7 @@ class FeelingForm extends React.Component {
                         {feelingCheckboxes}
                     </ul>
                     <div className="filters-button-row">
-                        <button type="submit">OK</button>
+                        <input type="submit" value='OK'></input>
                     </div>
                 </form>
             </div>
@@ -65,7 +65,7 @@ class TopicsForm extends React.Component {
                         {topicsCheckboxes}
                     </ul>
                     <div className="filters-button-row">
-                        <button type="submit">OK</button>
+                        <input type="submit" value='OK'></input>
                     </div>
                 </form>
             </div>
@@ -117,6 +117,13 @@ class GenreCheckboxes extends React.Component {
 }
 
 class GenreForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            valuesChecked: []
+        }
+    }
+
     getValuesChecked = (arr) => {
         let values = [];
         for (let i = 0; i < arr.length; i++) {
@@ -124,12 +131,20 @@ class GenreForm extends React.Component {
                 values.push(arr[i].value)
             }
         }
-        console.log(values);
+        // console.log(values);            //tablica z wartościami
+
+        this.setState({
+            valuesChecked: values
+        });
     };
 
     handleSubmit = (e) => {
         e.preventDefault();
-
+        // console.log(this.state.valuesChecked);
+        if(typeof this.props.getChosenFilters === 'function') {
+            this.props.getChosenFilters(this.state.valuesChecked);
+        }
+        e.target.reset();
     };
 
     render() {
@@ -141,7 +156,7 @@ class GenreForm extends React.Component {
                         <GenreCheckboxes getValuesChecked={this.getValuesChecked}/>
 
                     <div className="filters-button-row">
-                        <button type="submit">OK</button>
+                        <input type="submit" value='OK'></input>
                     </div>
                 </form>
             </div>
@@ -150,20 +165,35 @@ class GenreForm extends React.Component {
 }
 
 class Filters extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            chosenFilters: []
+        }
+    }
 
-    filterFilms = (value) => {
-        console.log(value);
+    getChosenFilters = (arr) => {
+        // console.log(arr);
 
+        this.setState({
+            chosenFilters: arr
+        });
+
+        if(typeof this.props.getFilters === 'function') {
+            this.props.getFilters(arr);
+        }
     };
 
     render() {
+        // console.log(this.state.chosenFilters);
+
         return (
             <div className="filters">
                 <h3 className="filters-title">filtruj</h3>
 
                 <FeelingForm />
                 <TopicsForm />
-                <GenreForm filterFilms={this.filterFilms}/>
+                <GenreForm getChosenFilters={this.getChosenFilters}/>
 
             </div>
         );

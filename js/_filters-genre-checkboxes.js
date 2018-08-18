@@ -1,6 +1,6 @@
 module.exports = [
     {
-        txt: 'dramat obyczajowy',
+        txt: 'dramat',
         value: 'drama'
     },
     {

@@ -43,12 +43,15 @@ class MainContentHeader extends React.Component {
     }
 }
 
+//-------------------------------------- MainContent ---------------------------------------
+
 class MainContent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             mainArray: this.props.mainArray,
-            selectActive: 0
+            selectActive: 0,
+            activeFilters: this.props.activeFilters     //tablica z kluczami obiektów
         }
     }
 
@@ -88,8 +91,26 @@ class MainContent extends React.Component {
     };
 
     render() {
-        // console.log(this.props.mainArray);
-        // console.log(this.state.mainArray);
+
+        //TODO: arrayToLoad???
+
+        let filteredArray = [];
+
+        if(this.props.activeFilters.length > 0) {
+            let mainArray = this.props.mainArray;
+            let filters = this.props.activeFilters;
+
+            for (let i = 0; i < filters.length; i++) {
+                let key = filters[i];
+                for (let j = 0; j < mainArray.length; j++) {
+                    if(mainArray[j][key] === true) {
+                        filteredArray.push(mainArray[j]);
+                    }
+                }
+            }
+        }
+        console.log(filteredArray);
+
 
         return (
             <div className="main-content">
