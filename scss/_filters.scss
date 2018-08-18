@@ -60,7 +60,7 @@
     right: 0;
     width: 20px;
     height: 20px;
-    opacity: 0;
+    //opacity: 0;
   }
 
 }
@@ -109,7 +109,7 @@
   display: flex;
   justify-content: flex-end;
 
-  button {
+  input {
     @include btn;
 
     width: 35px;

@@ -1,42 +1,37 @@
 import React from 'react';
 
+import MiddleSection from './_middle-section.jsx';
 
 class FilmContent extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            mainArray: this.props.mainArray
-        }
-    }
-
     render() {
-        let mainArray = this.props.mainArray;
+        let arrayToLoad = this.props.arrayToLoad;
 
         let films = [];
 
-        for (let i = 0; i < mainArray.length; i++) {
+        for (let i = 0; i < arrayToLoad.length; i++) {
             let div = <div className="film-card" key={i}>
                 <div className="film-poster-container">
-                    <div className="film-poster" style={{backgroundImage: `url(${mainArray[i].poster})`}}></div>
+                    <div className="film-poster"
+                         style={{backgroundImage: `url(${arrayToLoad[i].poster})`}}></div>
                 </div>
                 <div className="film-description">
                     <h4 className="film-title">
-                        {mainArray[i].title}
+                        {arrayToLoad[i].title}
                     </h4>
                     <p>reż.: <span className="film-director">
-                        {mainArray[i].director.length <= 21 ?
-                            mainArray[i].director :
-                            mainArray[i].director.substring(0, 19) + '...'}
+                        {arrayToLoad[i].director.length <= 21 ?
+                            arrayToLoad[i].director :
+                            arrayToLoad[i].director.substring(0, 19) + '...'}
                         </span>
                     </p>
                     <p>rok prod.: <span className="film-prod-year">
-                        {mainArray[i].year}
+                        {arrayToLoad[i].year}
                         </span>
                     </p>
                     <p>
                         <i className="fa fa-star" aria-hidden="true"></i>
                         <span className="film-rate">
-                            {` ${mainArray[i].rate}`}
+                            {` ${arrayToLoad[i].rate}`}
                         </span>
                     </p>
                 </div>

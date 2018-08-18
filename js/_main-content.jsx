@@ -1,6 +1,7 @@
 import React from 'react';
 
-import FilmContent from './_film-content.jsx'
+import FilmContent from './_film-content.jsx';
+import MiddleSection from './_middle-section.jsx';
 
 
 class MainContentHeader extends React.Component {
@@ -43,17 +44,18 @@ class MainContentHeader extends React.Component {
     }
 }
 
+//-------------------------------------- MainContent ---------------------------------------
 class MainContent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            mainArray: this.props.mainArray,
+            arrayToLoad: this.props.arrayToLoad,
             selectActive: 0
         }
     }
 
     sortMainArray = (key) => {
-        let sortedArray = [...this.props.mainArray];
+        let sortedArray = [...this.props.arrayToLoad];
 
         if(key === 'rate' || key === 'year') {
 
@@ -82,19 +84,19 @@ class MainContent extends React.Component {
         }
 
         this.setState({
-            mainArray: sortedArray,
+            arrayToLoad: sortedArray,
             selectActive: 1
         })
     };
 
     render() {
-        // console.log(this.props.mainArray);
-        // console.log(this.state.mainArray);
-
         return (
             <div className="main-content">
                 <MainContentHeader sortMainArray={this.sortMainArray}/>
-                <FilmContent mainArray={this.state.selectActive === 1 ? this.state.mainArray : this.props.mainArray}/>
+                <FilmContent
+                    arrayToLoad={this.state.selectActive === 1 ?
+                    this.state.arrayToLoad :
+                    this.props.arrayToLoad}/>
             </div>
         );
     }
