@@ -132,7 +132,6 @@ class GenreForm extends React.Component {
                 values.push(arr[i].value)
             }
         }
-        // console.log(values);            //tablica z wartościami
 
         this.setState({
             valuesChecked: values
@@ -165,6 +164,7 @@ class GenreForm extends React.Component {
     }
 }
 
+//--------------------------------------- Filters -----------------------------------
 class Filters extends React.Component {
     constructor(props) {
         super(props);

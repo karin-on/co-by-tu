@@ -28,17 +28,15 @@ class MiddleSection extends React.Component {
                 }
             }
         }
-        console.log(filteredArray);
+        let uniqFilteredArray = [...new Set(filteredArray)];
 
         this.setState({
-            filteredArray: filteredArray
+            filteredArray: uniqFilteredArray
         });
-        console.log(filteredArray);
     };
 
-
     render() {
-        console.log(this.state.filteredArray);
+        //console.log(this.state.filteredArray);
 
         return (
             <section className="middle-section">
