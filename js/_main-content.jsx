@@ -1,6 +1,7 @@
 import React from 'react';
 
-import FilmContent from './_film-content.jsx'
+import FilmContent from './_film-content.jsx';
+import MiddleSection from './_middle-section.jsx';
 
 
 class MainContentHeader extends React.Component {
@@ -44,19 +45,17 @@ class MainContentHeader extends React.Component {
 }
 
 //-------------------------------------- MainContent ---------------------------------------
-
 class MainContent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            mainArray: this.props.mainArray,
-            selectActive: 0,
-            activeFilters: this.props.activeFilters     //tablica z kluczami obiektów
+            arrayToLoad: this.props.arrayToLoad,
+            selectActive: 0
         }
     }
 
     sortMainArray = (key) => {
-        let sortedArray = [...this.props.mainArray];
+        let sortedArray = [...this.props.arrayToLoad];
 
         if(key === 'rate' || key === 'year') {
 
@@ -85,37 +84,19 @@ class MainContent extends React.Component {
         }
 
         this.setState({
-            mainArray: sortedArray,
+            arrayToLoad: sortedArray,
             selectActive: 1
         })
     };
 
     render() {
-
-        //TODO: arrayToLoad???
-
-        let filteredArray = [];
-
-        if(this.props.activeFilters.length > 0) {
-            let mainArray = this.props.mainArray;
-            let filters = this.props.activeFilters;
-
-            for (let i = 0; i < filters.length; i++) {
-                let key = filters[i];
-                for (let j = 0; j < mainArray.length; j++) {
-                    if(mainArray[j][key] === true) {
-                        filteredArray.push(mainArray[j]);
-                    }
-                }
-            }
-        }
-        console.log(filteredArray);
-
-
         return (
             <div className="main-content">
                 <MainContentHeader sortMainArray={this.sortMainArray}/>
-                <FilmContent mainArray={this.state.selectActive === 1 ? this.state.mainArray : this.props.mainArray}/>
+                <FilmContent
+                    arrayToLoad={this.state.selectActive === 1 ?
+                    this.state.arrayToLoad :
+                    this.props.arrayToLoad}/>
             </div>
         );
     }

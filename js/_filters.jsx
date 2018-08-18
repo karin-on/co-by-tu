@@ -3,6 +3,7 @@ import React from 'react';
 import genreArr from './_filters-genre-checkboxes';
 import feelingArr from './_filters-feeling-checkboxes';
 import topicsArr from './_filters-topics-checkboxes';
+import MiddleSection from './_middle-section.jsx';
 
 
 class FeelingForm extends React.Component {
@@ -173,20 +174,16 @@ class Filters extends React.Component {
     }
 
     getChosenFilters = (arr) => {
-        // console.log(arr);
-
         this.setState({
             chosenFilters: arr
         });
 
-        if(typeof this.props.getFilters === 'function') {
-            this.props.getFilters(arr);
+        if(typeof this.props.getFilteredArray === 'function') {
+            this.props.getFilteredArray(arr);
         }
     };
 
     render() {
-        // console.log(this.state.chosenFilters);
-
         return (
             <div className="filters">
                 <h3 className="filters-title">filtruj</h3>
