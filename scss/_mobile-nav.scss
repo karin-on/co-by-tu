@@ -1,3 +1,4 @@
+@import "mixins";
 @import "variables";
 
 .mob-nav-list {
@@ -6,13 +7,13 @@
   width: $mob-nav-width;
   position: fixed;
   top: 0;
-  right: -$mob-nav-width;      //--$mob-nav-width;  //--> schowany
+  right: -$mob-nav-width;      //--$mob-nav-width - schowany, 0 - wysunięty
   height: 100%;
   list-style: none;
   margin: 0;
-  padding: 30px;
+  padding: 40px 30px;
   transition: 0.5s all;
-  z-index: 9999999;
+  z-index: 2;
 
   &.show {
     right: 0;
@@ -24,53 +25,74 @@
     display: block;
     font-weight: 200;
     padding: 20px;
-  }
 
+    &:active {
+      color: $color-blue;
+    }
+  }
 }
 
 .mob-nav-show-btn {
   display: none;
-  width: 60px;
-  height: 45px;
-  border: 1px solid white;
-  margin-right: 20px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid transparent;
+  margin-right: 30px;
   background-color: transparent;
-  color: white;
-  font-size: 13px;
-  font-weight: 300;
   cursor: pointer;
 
-  &:hover{
-    border: 1px solid $color-blue;
+  span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: white;
+    margin: 15px 0;
 
+    &:first-child {
+      margin-top: 2px;
+    }
+  }
+
+  &:hover{
+    span {
+      background: $color-blue;
+    }
   }
 }
 
 .mob-nav-hide-btn {
-  display: none;
-  //display: block;
-  width: 20px;
-  height: 20px;
-  border-left: 1px solid white;
-  border-bottom: 1px solid white;
-  border-right: transparent;
-  border-top: transparent;
+  display: none;        //block jest w media-queries
+  width: 25px;
+  height: 25px;
+  border: 1px solid transparent;
   margin-left: 20px;
   margin-bottom: 20px;
-  transform: rotate(45deg);
-  background-color: transparent;
+  background-color: black;
   position: relative;
+  cursor: pointer;
 
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 30px;
-    height: 1px;
-    background-color: white;
-    transform: rotate(-45deg);
-    left: -4px;
-    bottom: 10px;
+  &:hover {
+    span {
+      background-color: $color-blue;
+    }
   }
 
+  span {
+    position: absolute;
+    width: 34px;
+    height: 1px;
+    background-color: white;
+
+    &:first-child {
+      transform: rotate(45deg);
+      left: -6px;
+      top: 11px;
+    }
+
+    &:last-child {
+      transform: rotate(-45deg);
+      left: -6px;
+      top: 11px;
+    }
+  }
 }

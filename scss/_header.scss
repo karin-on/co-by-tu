@@ -1,11 +1,12 @@
 @import "mixins";
+@import "variables";
 
 .page-header {
   width: 100vw;
   height: 120px;
   background-color: black;
   position: fixed;
-  z-index: 99999999;
+  z-index: 1;
 
   & .container {
     display: flex;
@@ -20,8 +21,6 @@
   margin: 0; /*czyszcze margines domyślny z h1*/
   padding: 0;
   position: relative;
-
-
 }
 
 .page-logo-link {
@@ -37,6 +36,10 @@
 
       animation: lineAnim 0.15s;
     }
+  }
+
+  &:active {
+    color: $color-blue;
   }
 }
 
@@ -78,6 +81,9 @@
       }
     }
 
+    &:active {
+      color: $color-blue;
+    }
   }
 }
 
