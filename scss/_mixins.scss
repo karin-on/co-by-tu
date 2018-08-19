@@ -55,6 +55,8 @@
 @mixin page-header-after {
   content: '';
   position: absolute;
+  bottom: 0;
+  left: 0;
   display: inline-block;
   height: 1px;
   background-color: #00e4ff;

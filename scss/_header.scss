@@ -21,16 +21,7 @@
   padding: 0;
   position: relative;
 
-  &:hover {
-    &:after {
-      @include page-header-after;
 
-      bottom: -11px;
-      left: -2px;
-      //width: 100%;
-      animation: lineAnim 0.15s;
-    }
-  }
 }
 
 .page-logo-link {
@@ -39,6 +30,14 @@
   font-weight: 200;
   font-size: 40px;
   padding: 10px;
+
+  &:hover {
+    &:after {
+      @include page-header-after;
+
+      animation: lineAnim 0.15s;
+    }
+  }
 }
 
 @keyframes lineAnim {
@@ -72,43 +71,13 @@
     font-size: 18px;
     padding: 10px;
     position: relative;
-  }
 
-  li:first-child {
     &:hover {
       &:after {
         @include page-header-after;
-
-        bottom: 0;
-        left: 19px;
-        //width: 100%;
       }
     }
+
   }
-
-  li:nth-child(2) {
-    &:hover {
-      &:after {
-        @include page-header-after;
-
-        bottom: 0;
-        left: 19px;
-        //width: 116px;
-      }
-    }
-  }
-
-  li:nth-child(3) {
-    &:hover {
-      &:after {
-        @include page-header-after;
-
-        bottom: 0;
-        left: 20px;
-        //width: 90px;
-      }
-    }
-  }
-
 }
 
