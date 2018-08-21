@@ -21,7 +21,7 @@ class FeelingCheckboxes extends React.Component {
                 [...this.state.boxesChanged, e.target] :
                 [...this.state.boxesChanged]
         });
-        if(typeof this.props.getValuesChecked === 'function') {
+        if(typeof this.props.getValuesChecked === 'function') {                     //udostępniane przez Form
             this.props.getValuesChecked([...this.state.boxesChanged, e.target]);
         }
     };
@@ -56,7 +56,7 @@ class FeelingForm extends React.Component {
         }
     }
 
-    getValuesChecked = (arr) => {
+    getValuesChecked = (arr) => {                   //arr przychodzi z Checkboxów
         let values = [];
         for (let i = 0; i < arr.length; i++) {
             if (arr[i].checked) {
@@ -72,7 +72,7 @@ class FeelingForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        if(typeof this.props.getChosenFilters === 'function') {
+        if(typeof this.props.getChosenFilters === 'function') {             //udostępniane przez Filtry
             this.props.getChosenFilters(this.state.valuesChecked);
         }
         e.target.reset();
@@ -285,12 +285,12 @@ class Filters extends React.Component {
         }
     }
 
-    getChosenFilters = (arr) => {
+    getChosenFilters = (arr) => {                                  //arr przychodzi z Form
         this.setState({
             chosenFilters: arr
         });
 
-        if(typeof this.props.getFilteredArray === 'function') {
+        if(typeof this.props.getFilteredArray === 'function') {         //GET FILTERED ARRAY udostępniana z _middle-section
             this.props.getFilteredArray(arr);
         }
     };

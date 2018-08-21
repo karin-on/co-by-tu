@@ -14,9 +14,9 @@ class PageHeader extends React.Component {
 
                     <nav className="page-nav">
                         <ul className="page-nav-list">
-                            <li><a href="">start</a></li>
-                            <li><a href="">wszystkie filmy</a></li>
-                            <li><a href="">o projekcie</a></li>
+                            <li><a href="#">start</a></li>
+                            <li><a href="#">wszystkie filmy</a></li>
+                            <li><a href="#">o projekcie</a></li>
                         </ul>
                     </nav>
                 </div>
