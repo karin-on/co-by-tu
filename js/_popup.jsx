@@ -11,7 +11,7 @@ class Popup extends React.Component {
     }
 
     handleClick = (e) => {
-        if(typeof this.props.closePopup === 'function' && e.target.id !== 'popup') {
+        if(typeof this.props.closePopup === 'function') {
             this.props.closePopup(e);
         }
     };
