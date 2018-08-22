@@ -11,29 +11,46 @@ class Form extends React.Component {
         super(props);
         this.state = {
             checkboxArr: this.props.checkboxArr,
-            valuesChecked: [],
+            boxesChanged: [],
+            // valuesChecked: [],
             title: this.props.title,
             name: this.props.name,
         }
     }
 
     handleChange = (e) => {
-        let values = [];
-        if(e.target.checked) {
-            values.push(e.target.value);
-        }
+        // this.setState({
+        //     boxesChanged: e.target.checked === true ?
+        //         [...this.state.boxesChanged, e.target] :
+        //         [...this.state.boxesChanged]
+        // });
 
+        //tu sprawdza mi tylko, czy w niego kliknęłam
         this.setState({
-            valuesChecked: values
+            boxesChanged: [...this.state.boxesChanged, e.target]
         });
+
     };
 
     handleSubmit = (e) => {
         e.preventDefault();
 
+        let values = [];
+        this.state.boxesChanged.forEach(el => {
+            if(el.checked) {
+                values.push(el.value);
+            }
+            return values;
+        });
+
         if(typeof this.props.getChosenFilters === 'function') {
-            this.props.getChosenFilters(this.state.valuesChecked);
+            this.props.getChosenFilters(values);
         }
+
+        this.setState({
+            boxesChanged: []            //!!!!!!!!!!!! reset
+        });
+
         e.target.reset();
     };
 
