@@ -12,22 +12,15 @@ class Form extends React.Component {
         this.state = {
             checkboxArr: this.props.checkboxArr,
             boxesChanged: [],
-            // valuesChecked: [],
             title: this.props.title,
-            name: this.props.name,
+            name: this.props.name
         }
     }
 
     handleChange = (e) => {
-        // this.setState({
-        //     boxesChanged: e.target.checked === true ?
-        //         [...this.state.boxesChanged, e.target] :
-        //         [...this.state.boxesChanged]
-        // });
-
         //tu sprawdza mi tylko, czy w niego kliknęłam
         this.setState({
-            boxesChanged: [...this.state.boxesChanged, e.target]
+            boxesChanged: [...this.state.boxesChanged, e.target],
         });
 
     };
@@ -36,15 +29,16 @@ class Form extends React.Component {
         e.preventDefault();
 
         let values = [];
+        let names = [];
         this.state.boxesChanged.forEach(el => {
             if(el.checked) {
                 values.push(el.value);
+                names.push(el.name);
             }
-            return values;
         });
 
         if(typeof this.props.getChosenFilters === 'function') {
-            this.props.getChosenFilters(values);
+            this.props.getChosenFilters(values, names);
         }
 
         this.setState({
@@ -59,10 +53,11 @@ class Form extends React.Component {
         for (let i = 0; i < this.state.checkboxArr.length; i++) {
             let li = <li key={`${this.state.name}-${i}`}>
                 <label className="filters-checkbox">
-                    <input type="checkbox"
-                           name={this.state.name}
+                    <input key={i}
+                           type="checkbox"
+                           name={this.state.checkboxArr[i].txt}
                            value={this.state.checkboxArr[i].value}
-                           onChange={e => this.handleChange(e)}/>
+                           onChange={(e) => this.handleChange(e)}/>
                     <span></span>
                     {this.state.checkboxArr[i].txt}
                 </label>
@@ -97,13 +92,13 @@ class Filters extends React.Component {
         }
     }
 
-    getChosenFilters = (arr) => {                                  //arr przychodzi z Form
+    getChosenFilters = (values, names) => {                                  //arr przychodzi z Form
         this.setState({
-            chosenFilters: arr
+            chosenFilters: values
         });
 
         if(typeof this.props.getFilteredArray === 'function') {         //GET FILTERED ARRAY udostępniana z _middle-section
-            this.props.getFilteredArray(arr);
+            this.props.getFilteredArray(values, names);
         }
     };
 
@@ -113,17 +108,17 @@ class Filters extends React.Component {
                 <h3 className="filters-title">filtruj</h3>
 
                 <Form getChosenFilters={this.getChosenFilters}
-                      name='feeling'
+                      // name='feeling'
                       title='mam ochotę na...'
                       checkboxArr={feelingArr}/>
 
                 <Form getChosenFilters={this.getChosenFilters}
-                      name='topics'
+                      // name='topics'
                       title='tematy'
                       checkboxArr={topicsArr}/>
 
                 <Form getChosenFilters={this.getChosenFilters}
-                      name='genre'
+                      // name='genre'
                       title='gatunki'
                       checkboxArr={genreArr}/>
 
