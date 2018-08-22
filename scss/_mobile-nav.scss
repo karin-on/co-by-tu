@@ -1,0 +1,98 @@
+@import "mixins";
+@import "variables";
+
+.mob-nav-list {
+  //display: none;
+  background: black;
+  width: $mob-nav-width;
+  position: fixed;
+  top: 0;
+  right: -$mob-nav-width;      //--$mob-nav-width - schowany, 0 - wysunięty
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 40px 30px;
+  transition: 0.5s all;
+  z-index: 2;
+
+  &.show {
+    right: 0;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-weight: 200;
+    padding: 20px;
+
+    &:active {
+      color: $color-blue;
+    }
+  }
+}
+
+.mob-nav-show-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid transparent;
+  margin-right: 30px;
+  background-color: transparent;
+  cursor: pointer;
+
+  span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: white;
+    margin: 15px 0;
+
+    &:first-child {
+      margin-top: 2px;
+    }
+  }
+
+  &:hover{
+    span {
+      background: $color-blue;
+    }
+  }
+}
+
+.mob-nav-hide-btn {
+  display: none;        //block jest w media-queries
+  width: 25px;
+  height: 25px;
+  border: 1px solid transparent;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  background-color: black;
+  position: relative;
+  cursor: pointer;
+
+  &:hover {
+    span {
+      background-color: $color-blue;
+    }
+  }
+
+  span {
+    position: absolute;
+    width: 34px;
+    height: 1px;
+    background-color: white;
+
+    &:first-child {
+      transform: rotate(45deg);
+      left: -6px;
+      top: 11px;
+    }
+
+    &:last-child {
+      transform: rotate(-45deg);
+      left: -6px;
+      top: 11px;
+    }
+  }
+}

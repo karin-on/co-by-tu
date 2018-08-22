@@ -6,6 +6,17 @@
   }
 }
 
+//---------------------------------- 1441 ------------------------------------
+@media (max-width: 1441px) {
+  .page-header {
+    height: 100px;
+  }
+
+  .middle-section {
+    padding: 200px 0 100px 0;
+  }
+}
+
 //---------------------------------- 1201 ------------------------------------
 @media (max-width: 1201px) {
   .container {
@@ -32,7 +43,11 @@
   }
 
   .page-nav-list {
-    width: 350px;
+    width: 380px;
+  }
+
+  .main-content-header {
+    padding: 0 65px 0 40px;
   }
 
   .filters {
@@ -46,6 +61,10 @@
     max-width: 700px;
     margin: 0 auto;
   }
+
+  .main-content-header {
+    padding: 0 30px 0 40px;
+  }
 }
 
 //---------------------------------- 769 ------------------------------------
@@ -55,16 +74,12 @@
     margin: 0 auto;
   }
 
-  .page-header {
-    height: 100px;
-  }
-
   .page-logo-link {
     font-size: 35px;
   }
 
   .page-nav-list {
-    width: 300px;
+    width: 350px;
 
     a {
       font-size: 16px;
@@ -107,11 +122,39 @@
     margin: 0 auto;
   }
 
+  .page-nav-list {
+    width: 340px;
+
+    a {
+      font-size: 15px;
+    }
+  }
+
   .main-content-header {
     padding: 0 25px 0 10px;
     //border: 1px solid aqua;
   }
 }
 
-//641 -----------> tutaj już przenieść filtry (rozwijane) nad filmy
+
+//---------------------------------- 641 ------------------------------------
+//-----------> tutaj już przenieść filtry (rozwijane) nad filmy
+@media (max-width: 641px) {
+  .container {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .page-nav-list {
+    display: none;        //roboczo!!!!!!!!!!!!!!!!!!
+  }
+
+  .mob-nav-show-btn {
+    display: inline-block;
+  }
+
+  .mob-nav-hide-btn {
+    display: block;
+  }
+}
 
