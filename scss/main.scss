@@ -1,10 +1,12 @@
+@import "reset";
 @import "fonts";
 @import "filters";
 @import "header";
 @import "layout";
 @import "main-content";
-@import "media_queries";
+
 @import "middle-section";
 @import "mixins";
 @import "mobile-nav";
-@import "reset";
+
+@import "media_queries";

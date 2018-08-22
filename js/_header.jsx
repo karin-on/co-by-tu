@@ -5,7 +5,6 @@ class PageHeader extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // isMobile: false,
             ulClass: 'page-nav-list'
         }
     }
@@ -25,26 +24,17 @@ class PageHeader extends React.Component {
     componentDidMount() {
         const media = window.matchMedia('(max-width: 641px)');
 
-        if (media.matches) {            //krok 1 - po wejściu na stronę
-            console.log('maly');
-            this.setState({
-                ulClass: 'mob-nav-list'
-            })
-        }
-
-        // media.addListener(function (m) {     //krok 2 - po zmianie rozdzielczości
-        //     if (m.matches) {
-        //         console.log('maly');
-        //         this.setState({                 //setState
-        //             ulClass: 'mob-nav-list'
-        //         })
-        //     } else {
-        //         console.log('duzy');
-        //         this.setState({                 //setState
-        //             ulClass: 'page-nav-list'
-        //         })
-        //     }
-        // })
+        media.addListener((m) => {     //krok 2 - po zmianie rozdzielczości
+            if (media.matches) {            //krok 1 - po wejściu na stronę
+                this.setState({
+                    ulClass: 'mob-nav-list'
+                })
+            } else {
+                this.setState({
+                    ulClass: 'page-nav-list'
+                })
+            }
+        })
     }
 
     componentWillUnmount() {                    //co tu ma być?????????
@@ -53,8 +43,6 @@ class PageHeader extends React.Component {
     }
 
     render() {
-        console.log(this.state.ulClass);
-
         return (
             <section className="page-header">
                 <div className="container">
@@ -72,9 +60,9 @@ class PageHeader extends React.Component {
                                 <span></span>
                             </button>
 
-                            <li><a href="">start</a></li>
-                            <li><a href="">wszystkie filmy</a></li>
-                            <li><a href="">o projekcie</a></li>
+                            <li><a href="#">start</a></li>
+                            <li><a href="#">wszystkie filmy</a></li>
+                            <li><a href="#">o projekcie</a></li>
                         </ul>
 
                         <button className="mob-nav-show-btn" onClick={this.showMobMenu}>

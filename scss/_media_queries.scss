@@ -6,6 +6,17 @@
   }
 }
 
+//---------------------------------- 1441 ------------------------------------
+@media (max-width: 1441px) {
+  .page-header {
+    height: 100px;
+  }
+
+  .middle-section {
+    padding: 200px 0 100px 0;
+  }
+}
+
 //---------------------------------- 1201 ------------------------------------
 @media (max-width: 1201px) {
   .container {
@@ -61,10 +72,6 @@
   .container {
     max-width: 600px;
     margin: 0 auto;
-  }
-
-  .page-header {
-    height: 100px;
   }
 
   .page-logo-link {
@@ -143,11 +150,11 @@
   }
 
   .mob-nav-show-btn {
-    display: inline-block !important;
+    display: inline-block;
   }
 
   .mob-nav-hide-btn {
-    display: block !important;
+    display: block;
   }
 }
 

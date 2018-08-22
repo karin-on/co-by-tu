@@ -2,7 +2,27 @@ import React from 'react';
 
 import MiddleSection from './_middle-section.jsx';
 
+import Popup from './_popup.jsx';
+
+
 class FilmContent extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isPopupOpen: false
+        }
+
+    }
+
+    openPopup = (ev) => {
+        ev.preventDefault();
+
+        this.setState({
+            isPopupOpen: !this.state.isPopupOpen
+        })
+    };
+
     render() {
         let arrayToLoad = this.props.arrayToLoad;
 
@@ -11,7 +31,7 @@ class FilmContent extends React.Component {
         for (let i = 0; i < arrayToLoad.length; i++) {
             let div = <div className="film-card" key={i}>
                 <div className="film-poster-container">
-                    <div className="film-poster"
+                    <div className="film-poster"  onClick={e => this.openPopup(e)}
                          style={{backgroundImage: `url(${arrayToLoad[i].poster})`}}></div>
                 </div>
                 <div className="film-description">
@@ -43,6 +63,10 @@ class FilmContent extends React.Component {
         return (
             <div className="film-content">
                 {films}
+
+                {this.state.isPopupOpen
+                        ? <Popup arrayToLoad={arrayToLoad}/>
+                        : null}
             </div>
         );
     }
