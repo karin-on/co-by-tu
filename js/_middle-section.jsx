@@ -66,6 +66,10 @@ class MiddleSection extends React.Component {
 
     // ==================================== NIE KASOWAĆ !!!! ======================================
     getFilteredArray = (arr) => {       //arr - tablica z filtrami(=kluczami w obiektach). przychodzi z _filters
+        console.log(arr);
+        let uniqFilters = [...new Set(arr)];    //just in case
+        console.log(uniqFilters);
+
         let filteredArray = [];
         let mainArray = this.state.mainArray;
 
@@ -82,6 +86,7 @@ class MiddleSection extends React.Component {
             }
 
             let uniqFilteredArray = [...new Set(filteredArray)];
+            console.log(uniqFilteredArray);
 
             this.setState({
                 filteredArray: uniqFilteredArray,
