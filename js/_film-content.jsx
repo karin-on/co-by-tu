@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import MiddleSection from './_middle-section.jsx';
 
@@ -10,18 +11,29 @@ class FilmContent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isPopupOpen: false
+            isPopupOpen: false,
+            filmID: ''
         }
 
     }
 
-    openPopup = (ev) => {
-        ev.preventDefault();
+    openPopup = (e, i) => {
+        e.preventDefault();
+
+        this.setState({
+            isPopupOpen: !this.state.isPopupOpen,
+            filmIndex: i
+        })
+    };
+
+    closePopup = (e) => {
+        e.preventDefault();
 
         this.setState({
             isPopupOpen: !this.state.isPopupOpen
         })
     };
+
 
     render() {
         let arrayToLoad = this.props.arrayToLoad;
@@ -29,9 +41,9 @@ class FilmContent extends React.Component {
         let films = [];
 
         for (let i = 0; i < arrayToLoad.length; i++) {
-            let div = <div className="film-card" key={i}>
+            let div = <div className="film-card" key={i} onClick={(e, id) => this.openPopup(e, i)}>
                 <div className="film-poster-container">
-                    <div className="film-poster"  onClick={e => this.openPopup(e)}
+                    <div className="film-poster"
                          style={{backgroundImage: `url(${arrayToLoad[i].poster})`}}></div>
                 </div>
                 <div className="film-description">
@@ -64,9 +76,11 @@ class FilmContent extends React.Component {
             <div className="film-content">
                 {films}
 
-                {this.state.isPopupOpen
-                        ? <Popup arrayToLoad={arrayToLoad}/>
-                        : null}
+                {this.state.isPopupOpen ?
+                    <Popup arrayToLoad={arrayToLoad}
+                           filmIndex={this.state.filmIndex}
+                           closePopup={this.closePopup}/> :
+                    null}
             </div>
         );
     }

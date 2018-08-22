@@ -82,6 +82,7 @@
   padding: 3px;
   margin: 4px;
   border: 1px solid transparent;
+  cursor: pointer;
 
   &:hover {
     border: 1px solid #bbbbbb;
@@ -100,7 +101,6 @@
     background-position: center;
     background-repeat: no-repeat;
     transition: 0.5s all;
-    cursor: pointer;
 
     &:hover {
       transform: scale(1.05);
@@ -146,6 +146,11 @@
 .film-card-details {
   position: absolute;
   z-index: 5;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
   width: 700px;
   height: 450px;
   background: white;
@@ -193,7 +198,7 @@
 .film-card-details-middle {
   display: flex;
   justify-content: flex-start;
-  padding: 10px 20px;
+  padding: 0 20px;
 
   h4 {
     font-weight: 400;
@@ -204,6 +209,7 @@
   p {
     font-size: 20px;
     font-weight: 300;
+    line-height: 1.3;
   }
 }
 
