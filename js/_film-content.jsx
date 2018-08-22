@@ -4,9 +4,7 @@ import MiddleSection from './_middle-section.jsx';
 
 class FilmContent extends React.Component {
     render() {
-        // console.log(this.props.arrayToLoad);
         let arrayToLoad = this.props.arrayToLoad;
-        // console.log(arrayToLoad);
 
         let films = [];
 
