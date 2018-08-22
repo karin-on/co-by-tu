@@ -23,22 +23,16 @@
   display: inline-block;
 }
 
-.filters-section-genre,
-.filters-section-topics,
-.filters-section-feeling {
+.filters-section {
   //border: 1px solid aqua;
   padding: 10px;
 }
 
-.filters-genre-title,
-.filters-topics-title,
-.filters-feeling-title {
+.filters-section-title {
   font-weight: 700;
 }
 
-.genre-list,
-.topics-list,
-.feeling-list {
+.filters-list {
   //border: 1px solid red;
   padding: 10px 5px;
 }
