@@ -1,10 +1,20 @@
 .notFound {
-  font-size: 30px;
-  color: black;
-  font-weight: 200;
   display: flex;
   height: 100vh;
-  padding: 0 20px;
+  padding: 0 30px;
   justify-content: center;
   align-items: center;
+}
+
+.notFound-text {
+  font-weight: 200;
+  font-size: 80px;
+  color: black;
+  text-align: center;
+
+  h2 {
+    font-weight: 200;
+    font-size: 30px;
+    text-align: center;
+  }
 }

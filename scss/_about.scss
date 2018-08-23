@@ -1,0 +1,21 @@
+.middle-section-about .container {
+  padding: 220px 0 100px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-header {
+  font-weight: 200;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.about-text {
+  padding: 0 50px;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: justify;
+}
