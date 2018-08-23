@@ -30,14 +30,6 @@
   font-size: 40px;
   padding: 10px;
 
-  //&:hover {
-  //  &:after {
-  //    @include page-header-after;
-  //
-  //    animation: lineAnim 0.15s;
-  //  }
-  //}
-
   &:after {
     @include page-header-after;
     visibility: hidden;
@@ -54,16 +46,6 @@
     color: $color-blue;
   }
 }
-
-//@keyframes lineAnim {
-//  0% {
-//    width: 0;
-//  }
-//  100% {
-//    width: 100%;
-//  }
-//}
-
 
 .page-nav-list {
   //border: 1px solid red;
@@ -86,12 +68,6 @@
     font-size: 18px;
     padding: 10px;
     position: relative;
-
-    //&:hover {
-    //  &:after {
-    //    @include page-header-after;
-    //  }
-    //}
 
     &:after {
       @include page-header-after;

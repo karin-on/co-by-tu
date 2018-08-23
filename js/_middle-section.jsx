@@ -27,11 +27,10 @@ class MiddleSection extends React.Component {
             mainArray: [],
             filteredArray: [],
             sortedArray: [],
-            // sortActive: 0,
-            // filtersActive: 0,
             pending: true,
             sortKey: '',
-            clearBtn: false
+            clearBtn: false,
+            activeFilters: ''
         }
     }
 
@@ -65,19 +64,16 @@ class MiddleSection extends React.Component {
     }
 
     // ==================================== NIE KASOWAĆ !!!! ======================================
-    getFilteredArray = (arr) => {       //arr - tablica z filtrami(=kluczami w obiektach). przychodzi z _filters
-        console.log(arr);
-        let uniqFilters = [...new Set(arr)];    //just in case
-        console.log(uniqFilters);
+    getFilteredArray = (values, names) => {       //arr - tablica z filtrami(=kluczami w obiektach). przychodzi z _filters
+        let uniqFilters = [...new Set(values)];    //just in case
+        let uniqNames = [...new Set(names)];    //just in case
 
         let filteredArray = [];
         let mainArray = this.state.mainArray;
 
-        if(arr.length > 0) {
-            let filters = arr;                      //filters checked
-
-            for (let i = 0; i < filters.length; i++) {
-                let key = filters[i];
+        if(uniqFilters.length > 0) {
+            for (let i = 0; i < uniqFilters.length; i++) {
+                let key = uniqFilters[i];
                 for (let j = 0; j < mainArray.length; j++) {
                     if(mainArray[j][key] === true) {
                         filteredArray.push(mainArray[j]);
@@ -90,17 +86,19 @@ class MiddleSection extends React.Component {
 
             this.setState({
                 filteredArray: uniqFilteredArray,
+                activeFilters: uniqNames.join('   /   ')
             });
         } else {
             this.setState({
-                filteredArray: mainArray,
+                filteredArray: mainArray
             });
         }
     };
 
     clearFilters = (e) => {
         this.setState({
-            filteredArray: this.state.mainArray
+            filteredArray: this.state.mainArray,
+            activeFilters: ''
         });
     };
 
@@ -113,6 +111,7 @@ class MiddleSection extends React.Component {
 
     //------------------------------- RENDER ---------------------------------
     render() {
+        console.log(this.state.activeFilters);
         if(this.state.pending) {
             return (
                 <section className="middle-section">
@@ -122,7 +121,10 @@ class MiddleSection extends React.Component {
                         <div className="main-content">
                             <MainContentHeader sortArrayToLoad={this.sortArrayToLoad}
                                                clearFilters={this.clearFilters}/>
-                            <div className="loading">Loading...</div>
+
+                            <div className="main-content-active-filters"></div>
+
+                            <div className="loading">coming soon...</div>
                         </div>
                     </div>
                 </section>
@@ -193,6 +195,13 @@ class MiddleSection extends React.Component {
                     <div className="main-content">
                         <MainContentHeader sortArrayToLoad={this.sortArrayToLoad}
                                             clearFilters={this.clearFilters}/>
+
+                        <div className="main-content-active-filters">
+                            {this.state.activeFilters !== '' ?
+                            `aktywne filtry:  ${this.state.activeFilters}` :
+                            null}
+                        </div>
+
                         <FilmContent arrayToLoad={arrayToLoad}/>
                     </div>
                 </div>

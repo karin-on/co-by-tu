@@ -12,22 +12,15 @@ class Form extends React.Component {
         this.state = {
             checkboxArr: this.props.checkboxArr,
             boxesChanged: [],
-            // valuesChecked: [],
             title: this.props.title,
-            name: this.props.name,
+            name: this.props.name
         }
     }
 
     handleChange = (e) => {
-        // this.setState({
-        //     boxesChanged: e.target.checked === true ?
-        //         [...this.state.boxesChanged, e.target] :
-        //         [...this.state.boxesChanged]
-        // });
-
         //tu sprawdza mi tylko, czy w niego kliknęłam
         this.setState({
-            boxesChanged: [...this.state.boxesChanged, e.target]
+            boxesChanged: [...this.state.boxesChanged, e.target],
         });
 
     };
@@ -36,22 +29,26 @@ class Form extends React.Component {
         e.preventDefault();
 
         let values = [];
+        let names = [];
         this.state.boxesChanged.forEach(el => {
             if(el.checked) {
                 values.push(el.value);
+                names.push(el.name);
             }
-            return values;
         });
+        e.target.reset();
 
         if(typeof this.props.getChosenFilters === 'function') {
-            this.props.getChosenFilters(values);
+            this.props.getChosenFilters(values, names);
+        }
+
+        if(typeof this.props.hideFilters === 'function') {
+            this.props.hideFilters(e);
         }
 
         this.setState({
             boxesChanged: []            //!!!!!!!!!!!! reset
         });
-
-        e.target.reset();
     };
 
     render() {
@@ -59,10 +56,11 @@ class Form extends React.Component {
         for (let i = 0; i < this.state.checkboxArr.length; i++) {
             let li = <li key={`${this.state.name}-${i}`}>
                 <label className="filters-checkbox">
-                    <input type="checkbox"
-                           name={this.state.name}
+                    <input key={i}
+                           type="checkbox"
+                           name={this.state.checkboxArr[i].txt}
                            value={this.state.checkboxArr[i].value}
-                           onChange={e => this.handleChange(e)}/>
+                           onChange={(e) => this.handleChange(e)}/>
                     <span></span>
                     {this.state.checkboxArr[i].txt}
                 </label>
@@ -93,39 +91,92 @@ class Filters extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            chosenFilters: []
+            chosenFilters: [],
+            showFilters: true,
         }
     }
 
-    getChosenFilters = (arr) => {                                  //arr przychodzi z Form
+    toggleFilters = () => {
         this.setState({
-            chosenFilters: arr
+            showFilters: !this.state.showFilters,
+        })
+    };
+
+    hideFilters = (e) => {
+                this.setState({
+                    showFilters: !this.state.showFilters
+                })
+
+    };
+
+
+    getChosenFilters = (values, names) => {                                  //arr przychodzi z Form
+        this.setState({
+            chosenFilters: values
         });
 
         if(typeof this.props.getFilteredArray === 'function') {         //GET FILTERED ARRAY udostępniana z _middle-section
-            this.props.getFilteredArray(arr);
+            this.props.getFilteredArray(values, names);
         }
     };
 
+
+
     render() {
+
+        const openClass = !this.state.showFilters ? 'open' : null;
+        const openBtnClass = !this.state.showFilters ? 'opened' : null;
+
+        let forms = <div className={`filters-forms ${openClass}`}>
+            <Form getChosenFilters={this.getChosenFilters}
+                  hideFilters={e => this.hideFilters(e)}
+                // name='feeling'
+                  title='mam ochotę na...'
+                  checkboxArr={feelingArr}/>
+
+            <Form getChosenFilters={this.getChosenFilters}
+                  hideFilters={e => this.hideFilters(e)}
+                // name='topics'
+                  title='tematy'
+                  checkboxArr={topicsArr}/>
+
+            <Form getChosenFilters={this.getChosenFilters}
+                  hideFilters={e => this.hideFilters(e)}
+                // name='genre'
+                  title='gatunki'
+                  checkboxArr={genreArr}/>
+        </div>;
+
         return (
             <div className="filters">
-                <h3 className="filters-title">filtruj</h3>
+                <h3 className="filters-title">
+                    filtruj
+                </h3>
+                <button className={`mob-filters-show-btn ${openBtnClass}`} onClick={this.toggleFilters}>
+                    {/*<i className="fa fa-angle-down" aria-hidden="true"></i>*/}
+                    <span></span>
+                    <span></span>
+                </button>
 
-                <Form getChosenFilters={this.getChosenFilters}
-                      name='feeling'
+
+                {/*<Form getChosenFilters={this.getChosenFilters}
+                      // name='feeling'
                       title='mam ochotę na...'
                       checkboxArr={feelingArr}/>
 
                 <Form getChosenFilters={this.getChosenFilters}
-                      name='topics'
+                      // name='topics'
                       title='tematy'
                       checkboxArr={topicsArr}/>
 
                 <Form getChosenFilters={this.getChosenFilters}
-                      name='genre'
+                      // name='genre'
                       title='gatunki'
-                      checkboxArr={genreArr}/>
+                      checkboxArr={genreArr}/>*/}
+
+
+                {forms}
+
 
             </div>
         );
