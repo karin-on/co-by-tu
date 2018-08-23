@@ -72,17 +72,15 @@ class MiddleSection extends React.Component {
         let mainArray = this.state.mainArray;
 
         if(uniqFilters.length > 0) {
-            for (let i = 0; i < uniqFilters.length; i++) {
-                let key = uniqFilters[i];
-                for (let j = 0; j < mainArray.length; j++) {
-                    if(mainArray[j][key] === true) {
-                        filteredArray.push(mainArray[j]);
-                    }
-                }
-            }
+            uniqFilters.forEach(el => {
+               mainArray.forEach(item => {
+                   if(item[el] === true) {
+                       filteredArray.push(item);
+                   }
+               })
+            });
 
             let uniqFilteredArray = [...new Set(filteredArray)];
-            // console.log(uniqFilteredArray);
 
             this.setState({
                 filteredArray: uniqFilteredArray,
@@ -102,7 +100,6 @@ class MiddleSection extends React.Component {
         });
     };
 
-
     sortArrayToLoad = (key) => {                    //udostępniana _main-content-header
         this.setState({
             sortKey: key
@@ -111,7 +108,6 @@ class MiddleSection extends React.Component {
 
     //------------------------------- RENDER ---------------------------------
     render() {
-        // console.log(this.state.activeFilters);
         if(this.state.pending) {
             return (
                 <section className="middle-section">
@@ -132,21 +128,7 @@ class MiddleSection extends React.Component {
         }
 
 
-        // let arrayToLoad = this.state.filteredArray;      //niestety nie działa, bo jak wracam do wartości domyślnej selecta, to nie czyści mi sortowania
-
         let arrayToLoad = [];
-
-        // const sortedArray = this.state.sortedArray;
-        // const filteredArray = this.state.filteredArray;
-        //
-        // sortedArray.forEach(elem => {
-        //     filteredArray.forEach(item => {
-        //         if(elem === item) {
-        //             arrayToLoad.push(elem);
-        //         }
-        //     })
-        // });
-
         const mainArray = this.state.mainArray;
         const filteredArray = this.state.filteredArray;
 

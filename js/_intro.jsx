@@ -5,7 +5,6 @@ import {
 } from 'react-router-dom';
 
 
-
 class Intro extends React.Component {
     render() {
         return (
@@ -16,7 +15,7 @@ class Intro extends React.Component {
                             co by tu... obejrzeć?
                         </h1>
                         <p className="intro-watch-text">
-                            hej hej. witaj po dobrej stronie kina. nie znajdziesz tu złych filmów, bo szkoda na nie Twojego i mojego czasu ;) do tego dużo customowych filtrów. have fun!
+                            hej! witaj po dobrej stronie kina. nie znajdziesz tu złych filmów, bo szkoda na nie Twojego i mojego czasu ;) w pakiecie dużo customowych filtrów. have fun!
                         </p>
                         <Link to="/main" className="intro-link">wchodzę w to!</Link>
                     </div>

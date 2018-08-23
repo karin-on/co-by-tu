@@ -11,7 +11,6 @@ class PageHeader extends React.Component {
         }
     }
 
-
     componentDidMount() {
         const media = window.matchMedia('(max-width: 641px)');
 
@@ -27,6 +26,7 @@ class PageHeader extends React.Component {
             }
         })
     }
+
     showMobMenu = () => {
         this.setState({
             ulClass: 'mob-nav-list show'

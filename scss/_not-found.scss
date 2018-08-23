@@ -1,20 +1,21 @@
 .notFound {
   display: flex;
+  flex-direction: column;
   height: 100vh;
   padding: 0 30px;
   justify-content: center;
   align-items: center;
 }
 
-.notFound-text {
+.notFound-header {
   font-weight: 200;
   font-size: 80px;
   color: black;
   text-align: center;
+}
 
-  h2 {
-    font-weight: 200;
-    font-size: 30px;
-    text-align: center;
-  }
+.notFound-text {
+  font-weight: 200;
+  font-size: 30px;
+  text-align: center;
 }
