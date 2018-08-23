@@ -179,6 +179,10 @@
       border: 1px solid #00e4ff;
     }
 
+    &:active {
+      color: $color-blue;
+    }
+
     &:active,
     &:focus,
     &:visited {

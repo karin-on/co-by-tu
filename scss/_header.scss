@@ -12,13 +12,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%; /*muszę nadać wysokość, zeby zadzialalo align-items*/
-    //border: 1px solid blue;
+    height: 100%;
   }
 }
 
 .page-logo {
-  margin: 0; /*czyszcze margines domyślny z h1*/
+  margin: 0;
   padding: 0;
   position: relative;
 }
@@ -48,7 +47,6 @@
 }
 
 .page-nav-list {
-  //border: 1px solid red;
   width: 400px;
   display: flex;
   justify-content: space-between;

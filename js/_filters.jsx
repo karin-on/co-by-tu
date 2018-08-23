@@ -92,7 +92,7 @@ class Filters extends React.Component {
         super(props);
         this.state = {
             chosenFilters: [],
-            showFilters: true,
+            showFilters: false,
         }
     }
 
@@ -103,10 +103,10 @@ class Filters extends React.Component {
     };
 
     hideFilters = (e) => {
-                this.setState({
-                    showFilters: !this.state.showFilters
-                })
-
+        this.setState({
+            showFilters: !this.state.showFilters
+            // showFilters: false
+        })
     };
 
 
@@ -120,29 +120,37 @@ class Filters extends React.Component {
         }
     };
 
+    componentDidMount() {
+        const media = window.matchMedia('(max-width: 641px)');
 
+        media.addListener((m) => {
+            if (media.matches) {
+                console.log('hello world');
+                this.setState({
+                    showFilters: false
+                })
+            }
+        })
+    }
 
     render() {
 
-        const openClass = !this.state.showFilters ? 'open' : null;
-        const openBtnClass = !this.state.showFilters ? 'opened' : null;
+        const openClass = this.state.showFilters ? 'open' : null;
+        const openBtnClass = this.state.showFilters ? 'opened' : null;
 
         let forms = <div className={`filters-forms ${openClass}`}>
             <Form getChosenFilters={this.getChosenFilters}
                   hideFilters={e => this.hideFilters(e)}
-                // name='feeling'
                   title='mam ochotę na...'
                   checkboxArr={feelingArr}/>
 
             <Form getChosenFilters={this.getChosenFilters}
                   hideFilters={e => this.hideFilters(e)}
-                // name='topics'
                   title='tematy'
                   checkboxArr={topicsArr}/>
 
             <Form getChosenFilters={this.getChosenFilters}
                   hideFilters={e => this.hideFilters(e)}
-                // name='genre'
                   title='gatunki'
                   checkboxArr={genreArr}/>
         </div>;
@@ -153,30 +161,11 @@ class Filters extends React.Component {
                     filtruj
                 </h3>
                 <button className={`mob-filters-show-btn ${openBtnClass}`} onClick={this.toggleFilters}>
-                    {/*<i className="fa fa-angle-down" aria-hidden="true"></i>*/}
                     <span></span>
                     <span></span>
                 </button>
 
-
-                {/*<Form getChosenFilters={this.getChosenFilters}
-                      // name='feeling'
-                      title='mam ochotę na...'
-                      checkboxArr={feelingArr}/>
-
-                <Form getChosenFilters={this.getChosenFilters}
-                      // name='topics'
-                      title='tematy'
-                      checkboxArr={topicsArr}/>
-
-                <Form getChosenFilters={this.getChosenFilters}
-                      // name='genre'
-                      title='gatunki'
-                      checkboxArr={genreArr}/>*/}
-
-
                 {forms}
-
 
             </div>
         );
