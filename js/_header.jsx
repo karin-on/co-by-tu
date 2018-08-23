@@ -64,7 +64,7 @@ class PageHeader extends React.Component {
                             </button>
 
                             <li><Link to="/">intro</Link></li>
-                            <li><Link to="/main">wszystkie filmy</Link></li>
+                            <li><Link to="/main">filmy</Link></li>
                             <li><Link to="/about">o projekcie</Link></li>
                         </ul>
 
