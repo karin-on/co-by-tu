@@ -124,7 +124,7 @@ class MiddleSection extends React.Component {
 
                             <div className="main-content-active-filters"></div>
 
-                            <div className="loading">Loading...</div>
+                            <div className="loading">coming soon...</div>
                         </div>
                     </div>
                 </section>

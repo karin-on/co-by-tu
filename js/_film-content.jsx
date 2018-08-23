@@ -12,6 +12,7 @@ class FilmContent extends React.Component {
         super(props);
         this.state = {
             isPopupOpen: false,
+            // display: 'none',
             filmID: ''
         }
 
@@ -22,6 +23,7 @@ class FilmContent extends React.Component {
 
         this.setState({
             isPopupOpen: !this.state.isPopupOpen,
+            // display: 'block',
             filmIndex: i
         })
     };
@@ -31,6 +33,8 @@ class FilmContent extends React.Component {
 
         this.setState({
             isPopupOpen: !this.state.isPopupOpen
+            // popupVisibility: 'hidden'
+            // display: 'none',
         })
     };
 
@@ -72,6 +76,10 @@ class FilmContent extends React.Component {
             films.push(div);
         }
 
+        // let popupStyle = {
+        //     visibility: this.state.popupVisibility
+        // };
+
         return (
             <div className="film-content">
                 {films}
@@ -81,6 +89,12 @@ class FilmContent extends React.Component {
                            filmIndex={this.state.filmIndex}
                            closePopup={this.closePopup}/> :
                     null}
+
+                {/*<Popup arrayToLoad={arrayToLoad}*/}
+                       {/*filmIndex={this.state.filmIndex}*/}
+                       {/*closePopup={this.closePopup}*/}
+                       {/*popUpStyle={this.state.display}/>*/}
+
             </div>
         );
     }

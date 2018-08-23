@@ -1,4 +1,5 @@
 @import "mixins";
+@import "variables";
 
 //----------------------- filters -------------------------
 .filters {
@@ -8,6 +9,8 @@
   padding-right: 10px;
   font-weight: 300;
   font-size: 16px;
+  border-right: 1px solid #c1c2c3;
+
 }
 
 .filters ul {
@@ -23,9 +26,72 @@
   display: inline-block;
 }
 
+//-------------------------------- mobile filters -------------------------------
+.mob-filters-show-btn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  //padding: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+
+  &.opened {
+    margin-top: 10px;
+    transform: rotate(-180deg);
+  }
+
+  span {
+    display: inline-block;
+    background-color: black;
+    height: 1px;
+    width: 30px;
+    position: absolute;
+
+    &:first-child {
+      transform: rotate(45deg);
+      top: 20px;
+      left: -10px;
+    }
+
+    &:last-child {
+      transform: rotate(-45deg);
+      top: 20px;
+      left: 12px;
+    }
+  }
+
+  &:hover {
+    span {
+      background-color: $color-blue;
+    }
+  }
+
+  &:active {
+    span {
+      background-color: $color-blue;
+      outline: none;
+    }
+  }
+
+  &:visited {
+    outline: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.filters-forms {
+  transition: 0.5s all;
+}
+
 .filters-section {
   //border: 1px solid aqua;
   padding: 10px;
+  transition: 0.5s all;
 }
 
 .filters-section-title {
@@ -56,7 +122,6 @@
     height: 20px;
     opacity: 0;
   }
-
 }
 
 .filters-checkbox {
@@ -110,9 +175,14 @@
     margin: 0 10px;
     font-size: 12px;
 
-    &:hover,
-    &:focus {
+    &:hover {
       border: 1px solid #00e4ff;
+    }
+
+    &:active,
+    &:focus,
+    &:visited {
+      outline: none;
     }
   }
 }

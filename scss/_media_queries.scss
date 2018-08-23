@@ -53,6 +53,10 @@
   .filters {
     width: 25%;
   }
+
+  .film-card-details-middle {
+    margin-bottom: 30px;
+  }
 }
 
 //---------------------------------- 861 ------------------------------------
@@ -72,6 +76,10 @@
   .container {
     max-width: 600px;
     margin: 0 auto;
+  }
+
+  .page-header {
+    padding: 0 40px;
   }
 
   .page-logo-link {
@@ -101,6 +109,10 @@
     //border: 1px solid aqua;
   }
 
+  .main-content-active-filters {
+    padding-left: 10px;
+  }
+
   .sort {
     .custom-select {
       width: 100px;
@@ -113,6 +125,35 @@
     font-size: 13px;
     width: 100px;
   }
+
+  .film-card-details {
+    width: 380px;
+    height: 591px;
+  }
+
+  .film-card-details-middle {
+    h4 {
+      font-weight: 400;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+  }
+
+  .film-poster-details {
+    margin-right: 20px;
+  }
+
+  .film-card-details-bottom {
+    font-size: 15px;
+  }
+
+
 }
 
 //---------------------------------- 681 ------------------------------------
@@ -145,6 +186,10 @@
     margin: 0 auto;
   }
 
+  .page-header {
+    padding: 0 40px;
+  }
+
   .page-nav-list {
     display: none;        //roboczo!!!!!!!!!!!!!!!!!!
   }
@@ -156,5 +201,44 @@
   .mob-nav-hide-btn {
     display: block;
   }
+
+  .middle-section {
+    padding: 180px 0 100px 0;
+  }
+
+  .middle-section .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-content {
+    margin-top: 60px;
+  }
+
+  .main-content-header {
+    padding: 0 40px 0 0;
+  }
+
+  .filters {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .filters-title {
+    margin-bottom: 5px;
+  }
+
+  .filters-forms {
+    margin-top: 50px;
+    display: none;
+  }
+
+  .mob-filters-show-btn {
+    display: inline-block;
+  }
+
 }
 
