@@ -69,6 +69,10 @@
     border: 1px solid #00e4ff;
   }
 
+  &:active {
+    color: $color-blue;
+  }
+
   &:visited {
     outline: none;
   }
@@ -81,10 +85,7 @@
   flex-wrap: wrap;
   width: 100%;
   min-height: 80%;
-  //border: 1px solid royalblue;
   padding: 10px 0 10px 21px;
-  //border-left: 1px solid #c1c2c3;
-
 }
 
 .film-card {

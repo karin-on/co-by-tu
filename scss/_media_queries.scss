@@ -240,5 +240,34 @@
     display: inline-block;
   }
 
+  .middle-section-intro .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .intro-watch,
+  .intro-read {
+    width: 70%;
+    margin-bottom: 20px;
+  }
+
+  .intro-watch-title,
+  .intro-read-title {
+    font-size: 35px;
+  }
+
+  .intro-watch-text,
+  .intro-read-text {
+    font-size: 18px;
+  }
+
+  .intro-link {
+    width: 160px;
+    height: 40px;
+    font-size: 18px;
+    padding: 6px;
+  }
+
+
 }
 

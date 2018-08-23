@@ -1,11 +1,13 @@
 import React from 'react';
-
+import {
+    Link
+} from 'react-router-dom';
 
 class PageHeader extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            ulClass: 'page-nav-list'
+            ulClass: window.matchMedia('(max-width: 641px)').matches ? 'mob-nav-list' : 'page-nav-list'
         }
     }
 
@@ -24,8 +26,8 @@ class PageHeader extends React.Component {
     componentDidMount() {
         const media = window.matchMedia('(max-width: 641px)');
 
-        media.addListener((m) => {     //krok 2 - po zmianie rozdzielczości
-            if (media.matches) {            //krok 1 - po wejściu na stronę
+        media.addListener((m) => {
+            if (media.matches) {
                 this.setState({
                     ulClass: 'mob-nav-list'
                 })
@@ -37,19 +39,19 @@ class PageHeader extends React.Component {
         })
     }
 
-    componentWillUnmount() {                    //co tu ma być?????????
-        const media = window.matchMedia('(max-width: 641px)');
-        media.removeListener();
-    }
+    // componentWillUnmount() {
+    //     const media = window.matchMedia('(max-width: 641px)');
+    //     media.removeListener();
+    // }
 
     render() {
         return (
             <section className="page-header">
                 <div className="container">
                     <h1 className="page-logo">
-                        <a href="/" className="page-logo-link">
+                        <Link to="/" className="page-logo-link">
                             co by tu...
-                        </a>
+                        </Link>
                     </h1>
 
                     <nav className="page-nav">
@@ -61,9 +63,9 @@ class PageHeader extends React.Component {
                                 <span></span>
                             </button>
 
-                            <li><a href="#">start</a></li>
-                            <li><a href="#">wszystkie filmy</a></li>
-                            <li><a href="#">o projekcie</a></li>
+                            <li><Link to="/">intro</Link></li>
+                            <li><Link to="/main">wszystkie filmy</Link></li>
+                            <li><Link to="/about">o projekcie</Link></li>
                         </ul>
 
                         <button className="mob-nav-show-btn" onClick={this.showMobMenu}>
