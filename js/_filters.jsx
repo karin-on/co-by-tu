@@ -52,21 +52,18 @@ class Form extends React.Component {
     };
 
     render() {
-        let checkboxes = [];
-        for (let i = 0; i < this.state.checkboxArr.length; i++) {
-            let li = <li key={`${this.state.name}-${i}`}>
+        let checkboxes = this.state.checkboxArr.map((el, i) => {
+            return <li key={`${this.state.name}-${i}`}>
                 <label className="filters-checkbox">
-                    <input key={i}
-                           type="checkbox"
-                           name={this.state.checkboxArr[i].txt}
-                           value={this.state.checkboxArr[i].value}
+                    <input type="checkbox"
+                           name={el.txt}
+                           value={el.value}
                            onChange={(e) => this.handleChange(e)}/>
                     <span></span>
-                    {this.state.checkboxArr[i].txt}
+                    {el.txt}
                 </label>
             </li>
-            checkboxes.push(li);
-        }
+        });
 
         return (
             <div className="filters-section">
@@ -95,6 +92,7 @@ class Filters extends React.Component {
             showFilters: false,
         }
     }
+
     componentDidMount() {
         const media = window.matchMedia('(max-width: 641px)');
 
@@ -133,7 +131,6 @@ class Filters extends React.Component {
 
 
     render() {
-
         const openClass = this.state.showFilters ? 'open' : null;
         const openBtnClass = this.state.showFilters ? 'opened' : null;
 

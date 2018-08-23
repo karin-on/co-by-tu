@@ -4,11 +4,9 @@ import ReactDOM from 'react-dom';
 class Popup extends React.Component {
     constructor(props) {
         super(props);
-        // console.log(this.props.popUpStyle);
         this.state = {
             filmIndex: this.props.filmIndex,
             arrayToLoad: this.props.arrayToLoad,
-            // popUpStyle: this.props.popUpStyle
         }
     }
 
@@ -19,14 +17,8 @@ class Popup extends React.Component {
     };
 
     render() {
-        // console.log(this.props.filmIndex);
         let filmIndex = this.props.filmIndex;
         let arrayToLoad = this.props.arrayToLoad;
-
-        //style={{display: this.props.popUpStyle}}
-        let popUpStyle = {
-            display: this.state.popUpStyle
-        };
 
         return (
             <div className="film-card-popup">

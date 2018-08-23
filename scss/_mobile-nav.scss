@@ -55,7 +55,6 @@
   width: 40px;
   height: 40px;
   border: 1px solid transparent;
-  //margin-right: 30px;
   background-color: transparent;
   cursor: pointer;
 
@@ -79,7 +78,7 @@
 }
 
 .mob-nav-hide-btn {
-  display: none;        //block jest w media-queries
+  display: none;        //block w media-queries
   width: 25px;
   height: 25px;
   border: 1px solid transparent;

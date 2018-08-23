@@ -2,20 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import MiddleSection from './_middle-section.jsx';
-
 import Popup from './_popup.jsx';
 
 
 class FilmContent extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
             isPopupOpen: false,
-            // display: 'none',
             filmID: ''
         }
-
     }
 
     openPopup = (e, i) => {
@@ -23,7 +19,6 @@ class FilmContent extends React.Component {
 
         this.setState({
             isPopupOpen: !this.state.isPopupOpen,
-            // display: 'block',
             filmIndex: i
         })
     };
@@ -33,8 +28,6 @@ class FilmContent extends React.Component {
 
         this.setState({
             isPopupOpen: !this.state.isPopupOpen
-            // popupVisibility: 'hidden'
-            // display: 'none',
         })
     };
 
@@ -42,43 +35,36 @@ class FilmContent extends React.Component {
     render() {
         let arrayToLoad = this.props.arrayToLoad;
 
-        let films = [];
-
-        for (let i = 0; i < arrayToLoad.length; i++) {
-            let div = <div className="film-card" key={i} onClick={(e, id) => this.openPopup(e, i)}>
+        let films = arrayToLoad.map((el, i) => {
+            return <div className="film-card" key={i} onClick={(e, id) => this.openPopup(e, i)}>
                 <div className="film-poster-container">
                     <div className="film-poster"
-                         style={{backgroundImage: `url(${arrayToLoad[i].poster})`}}></div>
+                         style={{backgroundImage: `url(${el.poster})`}}></div>
                 </div>
                 <div className="film-description">
                     <h4 className="film-title">
-                        {arrayToLoad[i].title}
+                        {el.title}
                     </h4>
                     <p>reż.: <span className="film-director">
-                        {arrayToLoad[i].director.length <= 21 ?
-                            arrayToLoad[i].director :
-                            arrayToLoad[i].director.substring(0, 19) + '...'}
+                        {el.director.length <= 21 ?
+                            el.director :
+                            el.director.substring(0, 19) + '...'}
                         </span>
                     </p>
                     <p>rok prod.: <span className="film-prod-year">
-                        {arrayToLoad[i].year}
+                        {el.year}
                         </span>
                     </p>
                     <p>
                         <i className="fa fa-star" aria-hidden="true"></i>
                         <span className="film-rate">
-                            {` ${arrayToLoad[i].rate}`}
+                            {` ${el.rate}`}
                         </span>
                     </p>
                 </div>
             </div>;
+        });
 
-            films.push(div);
-        }
-
-        // let popupStyle = {
-        //     visibility: this.state.popupVisibility
-        // };
 
         return (
             <div className="film-content">
@@ -89,11 +75,6 @@ class FilmContent extends React.Component {
                            filmIndex={this.state.filmIndex}
                            closePopup={this.closePopup}/> :
                     null}
-
-                {/*<Popup arrayToLoad={arrayToLoad}*/}
-                       {/*filmIndex={this.state.filmIndex}*/}
-                       {/*closePopup={this.closePopup}*/}
-                       {/*popUpStyle={this.state.display}/>*/}
 
             </div>
         );
