@@ -1,11 +1,8 @@
 @import "mixins";
 @import "variables";
 
-.middle-section-intro {
-  padding: 100px 0 100px 0;
-}
-
 .middle-section-intro .container {
+  padding: 250px 30px 0 30px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
