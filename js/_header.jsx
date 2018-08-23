@@ -11,17 +11,6 @@ class PageHeader extends React.Component {
         }
     }
 
-    showMobMenu = () => {
-        this.setState({
-            ulClass: 'mob-nav-list show'
-        });
-    };
-
-    hideMobMenu = () => {
-        this.setState({
-            ulClass: 'mob-nav-list'
-        });
-    };
 
     componentDidMount() {
         const media = window.matchMedia('(max-width: 641px)');
@@ -38,6 +27,17 @@ class PageHeader extends React.Component {
             }
         })
     }
+    showMobMenu = () => {
+        this.setState({
+            ulClass: 'mob-nav-list show'
+        });
+    };
+
+    hideMobMenu = () => {
+        this.setState({
+            ulClass: 'mob-nav-list'
+        });
+    };
 
     // componentWillUnmount() {
     //     const media = window.matchMedia('(max-width: 641px)');

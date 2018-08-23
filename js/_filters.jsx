@@ -95,6 +95,17 @@ class Filters extends React.Component {
             showFilters: false,
         }
     }
+    componentDidMount() {
+        const media = window.matchMedia('(max-width: 641px)');
+
+        media.addListener((m) => {
+            if (media.matches) {
+                this.setState({
+                    showFilters: false
+                })
+            }
+        })
+    }
 
     toggleFilters = () => {
         this.setState({
@@ -120,18 +131,6 @@ class Filters extends React.Component {
         }
     };
 
-    componentDidMount() {
-        const media = window.matchMedia('(max-width: 641px)');
-
-        media.addListener((m) => {
-            if (media.matches) {
-                console.log('hello world');
-                this.setState({
-                    showFilters: false
-                })
-            }
-        })
-    }
 
     render() {
 

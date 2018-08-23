@@ -82,7 +82,7 @@ class MiddleSection extends React.Component {
             }
 
             let uniqFilteredArray = [...new Set(filteredArray)];
-            console.log(uniqFilteredArray);
+            // console.log(uniqFilteredArray);
 
             this.setState({
                 filteredArray: uniqFilteredArray,
@@ -111,7 +111,7 @@ class MiddleSection extends React.Component {
 
     //------------------------------- RENDER ---------------------------------
     render() {
-        console.log(this.state.activeFilters);
+        // console.log(this.state.activeFilters);
         if(this.state.pending) {
             return (
                 <section className="middle-section">
