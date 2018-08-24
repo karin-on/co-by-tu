@@ -6,7 +6,6 @@ import Filters from './_filters.jsx';
 import MainContentHeader from './_main-content-header.jsx';
 import FilmContent from "./_film-content.jsx";
 
-
 // Initialize Firebase
 const config = {
     apiKey: "AIzaSyDh6U4szlRbHN-iJDc3ZEROI5XOWNcxYk8",
@@ -16,9 +15,10 @@ const config = {
     storageBucket: "fir-test-5bca3.appspot.com",
     messagingSenderId: "287567113055"
 };
-firebase.initializeApp(config);
-const db = firebase.database().ref();
 
+firebase.initializeApp(config);
+
+const db = firebase.database().ref();
 
 class MiddleSection extends React.Component {
     constructor(props) {
@@ -43,15 +43,17 @@ class MiddleSection extends React.Component {
                 let el = mainObject[key];
                 mainArray.push(el);
             }
+            //
+            // const sortFilms = (arr, key) => {       //sortowanie od ostatnio dodanego (domyślne)
+            //     arr.sort((a,b) => {
+            //         let x = a[key];
+            //         let y = b[key];
+            //         return y - x;
+            //     })
+            // };
+            // sortFilms(mainArray, "id");
 
-            const sortFilms = (arr, key) => {       //sortowanie od ostatnio dodanego (domyślne)
-                arr.sort((a,b) => {
-                    let x = a[key];
-                    let y = b[key];
-                    return y - x;
-                })
-            };
-            sortFilms(mainArray, "id");
+            mainArray.sort((a,b) => b.id - a.id);
 
 
             this.setState({
@@ -63,7 +65,7 @@ class MiddleSection extends React.Component {
         });
     }
 
-    // ==================================== NIE KASOWAĆ !!!! ======================================
+    // -----------------------------------------------------------------------------------
     getFilteredArray = (values, names) => {       //arr - tablica z filtrami(=kluczami w obiektach). przychodzi z _filters
         let uniqFilters = [...new Set(values)];    //just in case
         let uniqNames = [...new Set(names)];    //just in case

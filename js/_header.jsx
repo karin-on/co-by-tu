@@ -7,24 +7,32 @@ class PageHeader extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            ulClass: window.matchMedia('(max-width: 641px)').matches ? 'mob-nav-list' : 'page-nav-list'
+            ulClass: window.matchMedia('(max-width: 641px)').matches
+                ? 'mob-nav-list'
+                : 'page-nav-list'
         }
+        this.media = window.matchMedia('(max-width: 641px)');
     }
 
     componentDidMount() {
-        const media = window.matchMedia('(max-width: 641px)');
+        this.media.addListener(this.mediaListener)
+    }
 
-        media.addListener((m) => {
-            if (media.matches) {
-                this.setState({
-                    ulClass: 'mob-nav-list'
-                })
-            } else {
-                this.setState({
-                    ulClass: 'page-nav-list'
-                })
-            }
-        })
+
+    componentWillUnmount() {
+        this.media.removeListener(this.mediaListener)
+    }
+
+    mediaListener = (m) => {
+        if (this.media.matches) {
+            this.setState({
+                ulClass: 'mob-nav-list'
+            })
+        } else {
+            this.setState({
+                ulClass: 'page-nav-list'
+            })
+        }
     }
 
     showMobMenu = () => {
