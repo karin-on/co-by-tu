@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-    Link
-} from 'react-router-dom';
-import PageHeader from "./_header.jsx";
+
+import PageHeader from "../page-header/_page-header.jsx";
 
 class About extends React.Component {
     render() {

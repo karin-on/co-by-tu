@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import MiddleSection from './_middle-section.jsx';
-import Popup from './_popup.jsx';
+import Popup from '../popup/_popup.jsx';
 
 
 class FilmContent extends React.Component {

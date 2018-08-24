@@ -3,30 +3,16 @@ import ReactDOM from 'react-dom';
 import {
     HashRouter,
     Route,
-    Switch,
-    Link,
-    NavLink
+    Switch
 } from 'react-router-dom';
 
 require('../scss/main.scss');
 
-import Intro from './_intro.jsx';
-import PageHeader from './_header.jsx';
-import MiddleSection from './_middle-section.jsx';
-import About from './_about.jsx';
-import NotFound from './_not-found.jsx';
+import Intro from './components/intro/_intro.jsx';
+import Main from './components/_main.jsx';
+import About from './components/about/_about.jsx';
+import NotFound from './components/not-found/_not-found.jsx';
 
-
-class Main extends React.Component {
-    render() {
-        return (
-            <div>
-                <PageHeader />
-                <MiddleSection />
-            </div>
-        );
-    }
-}
 
 document.addEventListener('DOMContentLoaded', function(){
     ReactDOM.render(
