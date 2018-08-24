@@ -424,9 +424,39 @@
     p {
       font-size: 16px;
     }
+
+  }
+
+  .film-card-details {
+    width: 300px;
+    height: 467px;
+  }
+
+  .film-card-details-middle {
+    margin-bottom: 10px;
+
+    h4 {
+      font-size: 18px;
+      margin-bottom: 0;
+      margin-top: 5px;
+    }
+
+    p {
+      line-height: 1.2;
+    }
+  }
+
+  .film-poster-details {
+    width: 100px;
+    height: 142px;
+    margin-right: 20px;
   }
 
 
+
+
+
+}
 
   //---------------------------------- 400 ------------------------------------
 
@@ -458,4 +488,3 @@
   }
 
 
-}
