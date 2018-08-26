@@ -10,7 +10,7 @@ class PageHeader extends React.Component {
             ulClass: window.matchMedia('(max-width: 641px)').matches
                 ? 'mob-nav-list'
                 : 'page-nav-list'
-        }
+        };
         this.media = window.matchMedia('(max-width: 641px)');
     }
 
@@ -33,7 +33,7 @@ class PageHeader extends React.Component {
                 ulClass: 'page-nav-list'
             })
         }
-    }
+    };
 
     showMobMenu = () => {
         this.setState({
@@ -47,10 +47,6 @@ class PageHeader extends React.Component {
         });
     };
 
-    // componentWillUnmount() {
-    //     const media = window.matchMedia('(max-width: 641px)');
-    //     media.removeListener();
-    // }
 
     render() {
         return (

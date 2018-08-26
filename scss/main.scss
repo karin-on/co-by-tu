@@ -1,17 +1,19 @@
 @import "reset";
 @import "fonts";
 @import "filters";
-@import "header";
+@import "../js/components/page-header/page-header";
 @import "layout";
-@import "middle-section";
-@import "main-content";
+@import "../js/components/middle-section/middle-section";
+@import "../js/components/main-content/main-content";
+@import "../js/components/film-content/film-content";
 
 @import "mixins";
-@import "mobile-nav";
+@import "../js/components/page-header/mobile-nav";
+@import "../js/components/popup/popup";
 
-@import "intro";
-@import "about";
-@import "not-found";
+@import "../js/components/intro/intro";
+@import "../js/components/about/about";
+@import "../js/components/not-found/not-found";
 
 @import "media_queries";
 
