@@ -566,7 +566,8 @@ body {
   font-size: 20px;
   font-weight: 200;
   padding: 8px;
-  text-align: center; }
+  text-align: center;
+  color: black; }
   .intro-link:hover, .intro-link:active {
     border: 1px solid #00e4ff; }
   .intro-link:active {
