@@ -30,7 +30,7 @@ class Filters extends React.Component {
                 showFilters: false
             })
         }
-    }
+    };
 
     toggleFilters = () => {
         this.setState({
