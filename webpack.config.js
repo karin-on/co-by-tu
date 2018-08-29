@@ -83,7 +83,7 @@ module.exports = function(env) {
                 template: './index.html'
             }),
             new MiniCSS({
-                filename: "app.css", // definiujemy adres pliku css
+                filename: "app.css",
             }),
             new CopyWebpackPlugin([
                 { from: 'images', to: 'images' },
