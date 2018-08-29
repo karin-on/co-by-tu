@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', function(){
         <BrowserRouter>
             <div>
                 <Switch>
-                    <Route exact path="/" component={Intro} />
-                    <Route path="/main" component={Main} />
-                    <Route path="/about" component={About} />
+                    <Route exact path="/co-by-tu/" component={Intro} />
+                    <Route path="/co-by-tu/main" component={Main} />
+                    <Route path="/co-by-tu/about" component={About} />
                     <Route component={NotFound} />
                 </Switch>
             </div>
