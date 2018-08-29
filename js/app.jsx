@@ -17,16 +17,16 @@ import NotFound from './components/not-found/_not-found.jsx';
 
 document.addEventListener('DOMContentLoaded', function(){
     ReactDOM.render(
-        <BrowserRouter>
+        <HashRouter>
             <div>
                 <Switch>
-                    <Route exact path="/co-by-tu/" component={Intro} />
-                    <Route path="/co-by-tu/main" component={Main} />
-                    <Route path="/co-by-tu/about" component={About} />
+                    <Route exact path="/" component={Intro} />
+                    <Route path="/main" component={Main} />
+                    <Route path="/about" component={About} />
                     <Route component={NotFound} />
                 </Switch>
             </div>
-        </BrowserRouter>,
+        </HashRouter>,
         document.getElementById('app')
     );
 });
