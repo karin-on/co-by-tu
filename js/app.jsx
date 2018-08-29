@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import {
     HashRouter,
     Route,
-    Switch
+    Switch,
+    BrowserRouter
 } from 'react-router-dom';
 
 require('../scss/main.scss');
@@ -16,7 +17,7 @@ import NotFound from './components/not-found/_not-found.jsx';
 
 document.addEventListener('DOMContentLoaded', function(){
     ReactDOM.render(
-        <HashRouter>
+        <BrowserRouter>
             <div>
                 <Switch>
                     <Route exact path="/" component={Intro} />
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     <Route component={NotFound} />
                 </Switch>
             </div>
-        </HashRouter>,
+        </BrowserRouter>,
         document.getElementById('app')
     );
 });
