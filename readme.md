@@ -69,9 +69,9 @@ The site is designed with RWD approach, desktop-first. In the mobile version I u
 
 ![](./images/co-by-tu_prev1.png)
 
-![](/Users/karina/Documents/coders_lab/PROJEKTY/co-by-tu/images/co-by-tu_prev2.png)
+![](./images/co-by-tu_prev2.png)
 
-![](/Users/karina/Documents/coders_lab/PROJEKTY/co-by-tu/images/co-by-tu_prev3.png)
+![](./images/co-by-tu_prev3.png)
 
-![](/Users/karina/Documents/coders_lab/PROJEKTY/co-by-tu/images/co-by-tu_prev4.png) ![](/Users/karina/Documents/coders_lab/PROJEKTY/co-by-tu/images/co-by-tu_prev5.png)
+![](./images/co-by-tu_prev4.png) ![](./images/co-by-tu_prev5.png)![](./images/co-by-tu_prev6.png)
 
