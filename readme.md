@@ -61,7 +61,7 @@ The site is designed with RWD approach, desktop-first. In the mobile version I u
 
 ## Demo
 
-#### [Co by tu...](https://karin-on.github.io/co-by-tu/)
+### [Co by tu...](https://karin-on.github.io/co-by-tu/)
 
 
 
