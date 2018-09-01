@@ -2,14 +2,13 @@
 @import "../../../scss/variables";
 
 .mob-nav-list {
-  //display: none;
   display: flex;
   flex-direction: column;
   background: black;
   width: $mob-nav-width;
   position: fixed;
   top: 0;
-  right: -$mob-nav-width;      //--$mob-nav-width - schowany, 0 - wysunięty
+  right: -$mob-nav-width;
   height: 100%;
   list-style: none;
   margin: 0;
@@ -78,7 +77,7 @@
 }
 
 .mob-nav-hide-btn {
-  display: none;        //block w media-queries
+  display: none;
   width: 25px;
   height: 25px;
   border: 1px solid transparent;

@@ -43,18 +43,8 @@ class MiddleSection extends React.Component {
                 let el = mainObject[key];
                 mainArray.push(el);
             }
-            //
-            // const sortFilms = (arr, key) => {       //sortowanie od ostatnio dodanego (domyślne)
-            //     arr.sort((a,b) => {
-            //         let x = a[key];
-            //         let y = b[key];
-            //         return y - x;
-            //     })
-            // };
-            // sortFilms(mainArray, "id");
 
-            mainArray.sort((a,b) => b.id - a.id);
-
+            mainArray.sort((a,b) => b.id - a.id);       //domyślne sortowanie
 
             this.setState({
                 mainArray: mainArray,
@@ -66,7 +56,7 @@ class MiddleSection extends React.Component {
     }
 
     // -----------------------------------------------------------------------------------
-    getFilteredArray = (values, names) => {       //arr - tablica z filtrami(=kluczami w obiektach). przychodzi z _filters
+    getFilteredArray = (values, names) => {
         let uniqFilters = [...new Set(values)];    //just in case
         let uniqNames = [...new Set(names)];    //just in case
 
@@ -102,7 +92,7 @@ class MiddleSection extends React.Component {
         });
     };
 
-    sortArrayToLoad = (key) => {                    //udostępniana _main-content-header
+    sortArrayToLoad = (key) => {
         this.setState({
             sortKey: key
         });
@@ -147,14 +137,12 @@ class MiddleSection extends React.Component {
         let key = this.state.sortKey;
 
         if(key === 'rate' || key === 'year') {
-            const sortFilms = (arr, key) => {       //sortowanie - rate, year
-                arr.sort((a,b) => {
-                    let x = a[key];
-                    let y = b[key];
-                    return y - x;
+            const sortFilms = (key) => {            //sortowanie - rate, year
+                arrayToLoad.sort((a,b) => {
+                    return b[key] - a[key];
                 })
             };
-            sortFilms(arrayToLoad, key);
+            sortFilms(key);
 
         } else if (key === 'az') {
             const sortFilms = (a, b) => {           //sortowanie od A do Z

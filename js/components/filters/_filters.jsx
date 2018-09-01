@@ -41,17 +41,16 @@ class Filters extends React.Component {
     hideFilters = (e) => {
         this.setState({
             showFilters: !this.state.showFilters
-            // showFilters: false
         })
     };
 
 
-    getChosenFilters = (values, names) => {                                  //arr przychodzi z Form
+    getChosenFilters = (values, names) => {
         this.setState({
             chosenFilters: values
         });
 
-        if(typeof this.props.getFilteredArray === 'function') {         //GET FILTERED ARRAY udostępniana z _middle-section
+        if(typeof this.props.getFilteredArray === 'function') {
             this.props.getFilteredArray(values, names);
         }
     };

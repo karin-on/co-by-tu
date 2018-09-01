@@ -137,7 +137,7 @@
 
   input + span:after {
     content: '';
-    background: url("../images/tick_32x32.png");
+    background: url("../images/tick_32x32.png");   //"../../images/tick_32x32.png"
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
