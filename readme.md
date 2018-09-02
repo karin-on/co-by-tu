@@ -45,7 +45,7 @@ The site is designed with RWD approach, desktop-first. In the mobile version I u
 - You can read a few words of a film's description by clicking on its card.
 - On the left there are many custom filters. You can filter films according to your mood, a topic you want to study or more traditionally - according to a genre.
 - Once you choose filters you are going to see not only the selected films (wow!) but also names of filters which are active at the moment.
-- If you happen to choose a filter which doesn't match any film in my collection at a moment (try "social issues" and "ecology"), an adequate piece information will show up.
+- If you happen to choose a filter which doesn't match any film in my collection at a moment (try "social issues" or "ecology"), an adequate piece information will show up.
 - In case you are fed up with filtering there is a "clear filters" button on the right.
 - You can sort the films if you like, why not! Alphabetically, by rate or year of production (the last two in descending order). The default order is of ID number. While filters are changing the sorting order is being kept. If you want to clear sorting just change the select's value to default.
 - If you happen somehow to get lost on my website by typing in a link which doesn't exist, you will see a "not found" page.
@@ -74,5 +74,5 @@ The site is designed with RWD approach, desktop-first. In the mobile version I u
 
 ![](./images/co-by-tu_prev3.png)
 
-![](./images/co-by-tu_prev4.png) ![](./images/co-by-tu_prev5.png) ![](./images/co-by-tu_prev6.png)![](/Users/karina/Documents/coders_lab/PROJEKTY/co-by-tu/images/co-by-tu_prev7.png)
+![](./images/co-by-tu_prev4.png) ![](./images/co-by-tu_prev5.png) ![](./images/co-by-tu_prev6.png)![](./images/co-by-tu_prev7.png)
 
