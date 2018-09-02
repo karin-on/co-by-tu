@@ -64,10 +64,11 @@ class FilmContent extends React.Component {
             </div>;
         });
 
+        let noFilmsFound = <div className="no-films-found">nie ma tu jeszcze takiego filmu</div>;
 
         return (
             <div className="film-content">
-                {films}
+                {films.length !== 0 ? films :noFilmsFound}
 
                 {this.state.isPopupOpen ?
                     <Popup arrayToLoad={arrayToLoad}
