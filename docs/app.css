@@ -344,6 +344,14 @@ body {
     font-size: 14px;
     font-weight: 300; }
 
+.no-films-found {
+  height: 100%;
+  width: 100%;
+  padding: 100px;
+  text-align: center;
+  font-weight: 200;
+  font-size: 25px; }
+
 .mob-nav-list {
   display: flex;
   flex-direction: column;
@@ -638,7 +646,10 @@ body {
   .filters li {
     margin: 7px 0; }
   .subnote {
-    font-size: 12px; } }
+    font-size: 12px; }
+  .loading,
+  .no-films-found {
+    font-size: 20px; } }
 
 @media (max-width: 1025px) {
   .container {
@@ -873,7 +884,10 @@ body {
   .film-poster-details {
     width: 100px;
     height: 142px;
-    margin-right: 20px; } }
+    margin-right: 20px; }
+  .loading,
+  .no-films-found {
+    font-size: 18px; } }
 
 @media (max-width: 401px) {
   .intro-watch,
@@ -888,5 +902,9 @@ body {
   .intro-read-text {
     padding: 20px 5px; }
   .intro-link {
-    width: 140px; } }
+    width: 140px; }
+  .loading,
+  .no-films-found {
+    font-size: 16px;
+    padding: 80px; } }
 
