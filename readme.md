@@ -74,5 +74,5 @@ The site is designed with RWD approach, desktop-first. In the mobile version I u
 
 ![](./images/co-by-tu_prev3.png)
 
-![](./images/co-by-tu_prev4.png) ![](./images/co-by-tu_prev5.png) ![](./images/co-by-tu_prev6.png)![](./images/co-by-tu_prev7.png)
+![](./images/co-by-tu_prev4.png) ![](./images/co-by-tu_prev5.png) ![](./images/co-by-tu_prev6.png) ![](./images/co-by-tu_prev7.png)
 
