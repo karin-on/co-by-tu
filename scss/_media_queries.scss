@@ -46,6 +46,12 @@
   .subnote {
     font-size: 12px;
   }
+
+  .loading,
+  .no-films-found {
+    font-size: 20px;
+  }
+
 }
 
 //---------------------------------- 1024 ------------------------------------
@@ -446,31 +452,42 @@
     height: 142px;
     margin-right: 20px;
   }
+
+  .loading,
+  .no-films-found {
+    font-size: 18px;
+  }
 }
 
   //---------------------------------- 400 ------------------------------------
 
-  @media (max-width: 401px) {
-    .intro-watch,
-    .intro-read {
-      width: 85%;
-    }
-
-    .intro-watch-title,
-    .intro-read-title {
-      font-size: 28px;
-      height: 80px;
-      padding: 0 5px;
-    }
-
-    .intro-watch-text,
-    .intro-read-text {
-      padding: 20px 5px;
-    }
-
-    .intro-link {
-      width: 140px;
-    }
+@media (max-width: 401px) {
+  .intro-watch,
+  .intro-read {
+    width: 85%;
   }
+
+  .intro-watch-title,
+  .intro-read-title {
+    font-size: 28px;
+    height: 80px;
+    padding: 0 5px;
+  }
+
+  .intro-watch-text,
+  .intro-read-text {
+    padding: 20px 5px;
+  }
+
+  .intro-link {
+    width: 140px;
+  }
+
+  .loading,
+  .no-films-found {
+    font-size: 16px;
+    padding: 80px;
+  }
+}
 
 

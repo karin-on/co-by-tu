@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/database';
 
 import Filters from '../filters/_filters.jsx';
-import MainContentHeader from '../main-content/_main-content-header.jsx';
+import MainContentHeader from '../main-content-header/_main-content-header.jsx';
 import FilmContent from "../film-content/_film-content.jsx";
 
 // Initialize Firebase
