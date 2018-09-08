@@ -135,8 +135,6 @@ body {
       border: 1px solid #00e4ff; }
     .filters-button-row input:active {
       color: #00e4ff; }
-    .filters-button-row input:active, .filters-button-row input:focus, .filters-button-row input:visited {
-      outline: none; }
 
 .subnote {
   display: inline;
