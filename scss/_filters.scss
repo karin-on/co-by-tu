@@ -57,27 +57,20 @@
     }
   }
 
-  &:hover {
-    span {
-      background-color: $color-blue;
-    }
-  }
-
+  &:hover,
   &:active {
     span {
       background-color: $color-blue;
-      outline: none;
     }
   }
 
-  &:visited {
-    outline: none;
-  }
-
-  &:focus {
+  &:visited,
+  &:focus,
+  &:active {
     outline: none;
   }
 }
+
 
 .filters-forms {
   transition: 0.5s all;
@@ -179,7 +172,7 @@
     &:active,
     &:focus,
     &:visited {
-      //outline: none;
+      outline: none;
     }
   }
 }
