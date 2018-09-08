@@ -84,7 +84,6 @@
 }
 
 .filters-section {
-  //border: 1px solid aqua;
   padding: 10px;
   transition: 0.5s all;
 }
@@ -94,7 +93,6 @@
 }
 
 .filters-list {
-  //border: 1px solid red;
   padding: 10px 5px;
 }
 
@@ -137,7 +135,7 @@
 
   input + span:after {
     content: '';
-    background: url("../images/tick_32x32.png");   //"../../images/tick_32x32.png"
+    background: url("../images/tick_32x32.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -181,7 +179,7 @@
     &:active,
     &:focus,
     &:visited {
-      outline: none;
+      //outline: none;
     }
   }
 }

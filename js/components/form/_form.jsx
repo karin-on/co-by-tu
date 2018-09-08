@@ -13,7 +13,7 @@ class Form extends React.Component {
     }
 
     handleChange = (e) => {
-        //tu sprawdza mi tylko, czy w niego kliknęłam
+        //sprawdzenie, czy checkbox był kiknięty
         this.setState({
             boxesChanged: [...this.state.boxesChanged, e.target],
         });
@@ -23,27 +23,37 @@ class Form extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
+        let formValid = true;
         let values = [];
         let names = [];
+
         this.state.boxesChanged.forEach(el => {
             if(el.checked) {
                 values.push(el.value);
                 names.push(el.name);
             }
         });
-        e.target.reset();
 
-        if(typeof this.props.getChosenFilters === 'function') {
-            this.props.getChosenFilters(values, names);
+        if (!values.length) {
+            formValid = false;
         }
 
-        if(typeof this.props.hideFilters === 'function') {
-            this.props.hideFilters(e);
+        if (formValid) {
+            if(typeof this.props.getChosenFilters === 'function') {
+                this.props.getChosenFilters(values, names);
+            }
+
+            if(typeof this.props.hideFilters === 'function') {
+                this.props.hideFilters(e);
+            }
+
+            this.setState({
+                boxesChanged: []            //!reset
+            });
+
+            e.target.reset();
         }
 
-        this.setState({
-            boxesChanged: []            //!!!!!!!!!!!! reset
-        });
     };
 
     render() {

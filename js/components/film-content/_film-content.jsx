@@ -30,7 +30,6 @@ class FilmContent extends React.Component {
         })
     };
 
-
     render() {
         let arrayToLoad = this.props.arrayToLoad;
 
