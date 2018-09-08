@@ -47,14 +47,9 @@ body {
       transform: rotate(-45deg);
       top: 20px;
       left: 12px; }
-  .mob-filters-show-btn:hover span {
+  .mob-filters-show-btn:hover span, .mob-filters-show-btn:active span {
     background-color: #00e4ff; }
-  .mob-filters-show-btn:active span {
-    background-color: #00e4ff;
-    outline: none; }
-  .mob-filters-show-btn:visited {
-    outline: none; }
-  .mob-filters-show-btn:focus {
+  .mob-filters-show-btn:visited, .mob-filters-show-btn:focus, .mob-filters-show-btn:active {
     outline: none; }
 
 .filters-forms {
@@ -135,6 +130,8 @@ body {
       border: 1px solid #00e4ff; }
     .filters-button-row input:active {
       color: #00e4ff; }
+    .filters-button-row input:active, .filters-button-row input:focus, .filters-button-row input:visited {
+      outline: none; }
 
 .subnote {
   display: inline;
