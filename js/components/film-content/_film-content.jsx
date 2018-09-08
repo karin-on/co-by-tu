@@ -30,23 +30,6 @@ class FilmContent extends React.Component {
         })
     };
 
-    // doNothing = (e) => {
-    //     switch (e.which) {
-    //         case 13: e.preventDefault();
-    //         break;
-    //         case 32: e.preventDefault();
-    //         break;
-    //     }
-    // }
-
-    // componentDidMount() {
-    //     window.addEventListener('keydown', this.doNothing);
-    // }
-    //
-    // componentWillUnmount() {
-    //     window.removeEventListener('keydown', this.doNothing);
-    // }
-
     render() {
         let arrayToLoad = this.props.arrayToLoad;
 
