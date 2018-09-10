@@ -15,6 +15,17 @@ class MainContentHeader extends React.Component {
         }
     };
 
+
+    //---------------------- search ---------------------------
+
+    handleSearchChange = (e) => {
+        if(typeof this.props.searchTitles === 'function') {
+            this.props.searchTitles(e.target.value.toLowerCase());
+        }
+    }
+
+
+
     handleClick = (e) => {
         if(typeof this.props.clearFilters === 'function') {
             this.props.clearFilters(e);
@@ -39,6 +50,16 @@ class MainContentHeader extends React.Component {
                         </div>
                     </label>
                 </div>
+
+
+                <div className="search">
+                    <input type="text"
+                           className="search-input"
+                           placeholder="szukaj po tytule"
+                           onChange={e => this.handleSearchChange(e)}/>
+                </div>
+
+
 
                 <button className="clear-filters-btn" onClick={e => this.handleClick(e)}>
                     wyczyść filtry

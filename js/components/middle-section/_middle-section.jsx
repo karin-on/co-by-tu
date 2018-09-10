@@ -26,7 +26,10 @@ class MiddleSection extends React.Component {
         this.state = {
             mainArray: [],
             filteredArray: [],
-            sortedArray: [],
+            // sortedArray: [],
+
+            searchedArray: [],
+
             pending: true,
             sortKey: '',
             clearBtn: false,
@@ -49,7 +52,10 @@ class MiddleSection extends React.Component {
             this.setState({
                 mainArray: mainArray,
                 filteredArray: mainArray,
-                sortedArray: mainArray,
+                // sortedArray: mainArray,
+
+                searchedArray: mainArray,
+
                 pending: false
             })
         });
@@ -85,6 +91,25 @@ class MiddleSection extends React.Component {
         }
     };
 
+
+    //--------------------------- search ---------------------------
+
+    searchTitles = (value) => {
+        if (value !== '') {
+            let searchedTitles = this.state.mainArray.filter(item => {
+                return item.title.toLowerCase().includes(value.toLowerCase());
+            })
+            this.setState({
+                searchedArray: searchedTitles
+            })
+        } else {
+            this.setState({
+                searchedArray: this.state.mainArray
+            })
+        }
+    }
+
+
     clearFilters = (e) => {
         this.setState({
             filteredArray: this.state.mainArray,
@@ -108,6 +133,7 @@ class MiddleSection extends React.Component {
 
                         <div className="main-content">
                             <MainContentHeader sortArrayToLoad={this.sortArrayToLoad}
+                                               searchTitles={this.searchTitles}
                                                clearFilters={this.clearFilters}/>
 
                             <div className="main-content-active-filters"></div>
@@ -123,12 +149,18 @@ class MiddleSection extends React.Component {
         let arrayToLoad = [];
         const mainArray = this.state.mainArray;
         const filteredArray = this.state.filteredArray;
+        const searchedArray = this.state.searchedArray;         //!!!!!!!!!
+        console.log(searchedArray);
+
+        //------------------------ zbiór wspólny -----------------------
 
         mainArray.forEach(elem => {
             filteredArray.forEach(item => {
-                if(elem === item) {
-                    arrayToLoad.push(elem);
-                }
+                searchedArray.forEach(el => {               //!!!!!!!!
+                    if(elem === item && item === el && elem === el) {
+                        arrayToLoad.push(elem);
+                    }
+                })
             })
         });
 
@@ -146,8 +178,8 @@ class MiddleSection extends React.Component {
 
         } else if (key === 'az') {
             const sortFilms = (a, b) => {           //sortowanie od A do Z
-                let x = a.title.toUpperCase();
-                let y = b.title.toUpperCase();
+                let x = a.title.toLowerCase();
+                let y = b.title.toLowerCase();
                 let comparison = 0;
                 if (x > y) {
                     comparison = 1;
@@ -166,7 +198,8 @@ class MiddleSection extends React.Component {
 
                     <div className="main-content">
                         <MainContentHeader sortArrayToLoad={this.sortArrayToLoad}
-                                            clearFilters={this.clearFilters}/>
+                                           searchTitles={this.searchTitles}
+                                           clearFilters={this.clearFilters}/>
 
                         <div className="main-content-active-filters">
                             {this.state.activeFilters !== '' ?
