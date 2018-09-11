@@ -146,13 +146,12 @@ class MiddleSection extends React.Component {
         }
 
 
+        //------------------------ zbiór wspólny -----------------------
         let arrayToLoad = [];
         const mainArray = this.state.mainArray;
         const filteredArray = this.state.filteredArray;
         const searchedArray = this.state.searchedArray;         //!!!!!!!!!
         console.log(searchedArray);
-
-        //------------------------ zbiór wspólny -----------------------
 
         mainArray.forEach(elem => {
             filteredArray.forEach(item => {
