@@ -26,7 +26,6 @@ class MiddleSection extends React.Component {
         this.state = {
             mainArray: [],
             filteredArray: [],
-            sortedArray: [],
             pending: true,
             sortKey: '',
             clearBtn: false,
@@ -49,7 +48,6 @@ class MiddleSection extends React.Component {
             this.setState({
                 mainArray: mainArray,
                 filteredArray: mainArray,
-                sortedArray: mainArray,
                 pending: false
             })
         });
