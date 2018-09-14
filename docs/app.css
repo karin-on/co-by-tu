@@ -133,11 +133,6 @@ body {
     .filters-button-row input:active, .filters-button-row input:focus, .filters-button-row input:visited {
       outline: none; }
 
-.subnote {
-  display: inline;
-  font-size: 14px;
-  margin-left: 24px; }
-
 .page-header {
   width: 100%;
   height: 120px;
@@ -256,33 +251,51 @@ body {
   width: 100%;
   height: 40px; }
 
-.main-content-active-filters {
-  height: 28px;
-  padding-left: 40px;
-  font-size: 14px;
-  font-weight: 300; }
+.sort-and-search {
+  height: 100%;
+  flex-grow: 1;
+  display: flex; }
 
-.sort {
-  margin-top: 4px; }
-  .sort label {
-    font-size: 16px;
-    font-weight: 300;
-    position: relative; }
-  .sort .custom-select {
-    width: 120px;
-    height: 30px;
-    border: 1px solid black;
-    position: absolute;
-    right: -135px;
-    bottom: -6px; }
-    .sort .custom-select:hover, .sort .custom-select:focus {
-      border: 1px solid #00e4ff; }
-    .sort .custom-select select {
-      width: 100%;
-      height: 100%;
-      background-color: white;
-      border: transparent;
-      cursor: pointer; }
+.sort label {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 300;
+  margin-right: 5px; }
+
+.sort .custom-select {
+  display: inline-block;
+  width: 120px;
+  height: 30px;
+  border: 1px solid black; }
+  .sort .custom-select:hover, .sort .custom-select:focus {
+    border: 1px solid #00e4ff; }
+  .sort .custom-select select {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border: transparent;
+    cursor: pointer; }
+
+.search input {
+  width: 160px;
+  height: 30px;
+  border: 1px solid black;
+  background: white;
+  transition: 0.5s all;
+  font-size: 16px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  color: black;
+  padding-left: 8px;
+  margin-left: 40px; }
+  .search input:-ms-input-placeholder {
+    color: rgba(0, 0, 0, 0.5); }
+  .search input::placeholder {
+    color: rgba(0, 0, 0, 0.5); }
+  .search input:hover, .search input:focus {
+    border: 1px solid #00e4ff; }
+  .search input:focus {
+    outline: none; }
 
 .clear-filters-btn {
   height: 30px;
@@ -299,6 +312,12 @@ body {
     color: #00e4ff; }
   .clear-filters-btn:visited {
     outline: none; }
+
+.main-content-active-filters {
+  height: 28px;
+  padding-left: 40px;
+  font-size: 14px;
+  font-weight: 300; }
 
 .film-content {
   display: flex;
@@ -640,8 +659,6 @@ body {
     font-size: 14px; }
   .filters li {
     margin: 7px 0; }
-  .subnote {
-    font-size: 12px; }
   .loading,
   .no-films-found {
     font-size: 20px; } }
@@ -653,7 +670,17 @@ body {
   .middle-section-intro .container {
     padding: 100px 30px 0 30px; }
   .main-content-header {
-    padding: 0 65px 0 40px; }
+    padding: 0 55px 0 30px;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 80px; }
+  .sort-and-search {
+    width: 100%;
+    height: 50%;
+    justify-content: space-between;
+    flex-grow: 0; }
+  .search input {
+    margin-left: 0; }
   .about-text {
     font-size: 18px; }
   .filters {
@@ -666,7 +693,7 @@ body {
     max-width: 700px;
     margin: 0 auto; }
   .main-content-header {
-    padding: 0 30px 0 40px; } }
+    padding: 0 15px 0 30px; } }
 
 @media (max-width: 769px) {
   .container {
@@ -701,6 +728,11 @@ body {
       font-size: 10px; }
   .main-content-header {
     padding: 0 55px 0 10px; }
+  .sort label {
+    font-size: 14px; }
+  .search input {
+    width: 130px;
+    font-size: 14px; }
   .main-content-active-filters {
     padding-left: 10px; }
   .sort .custom-select {
@@ -779,7 +811,13 @@ body {
   .main-content {
     margin-top: 60px; }
   .main-content-header {
-    padding: 0 40px 0 0; }
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0;
+    width: 100%;
+    margin: 20px 0 10px 0; }
+  .search input {
+    width: 160px; }
   .film-content {
     padding: 10px 0 10px 40px; }
   .filters {
@@ -806,6 +844,8 @@ body {
     margin: 0 auto; }
   .middle-section-intro .container {
     padding: 40px 30px 0 30px; }
+  .search input {
+    width: 130px; }
   .film-content {
     padding: 10px 0 10px 35px; } }
 
@@ -836,14 +876,15 @@ body {
   .intro-read-title {
     font-size: 31px; }
   .main-content-header {
-    flex-direction: column;
-    align-items: center;
     padding: 0;
-    width: 100%;
-    height: 80px;
-    margin: 20px 0 10px 0; }
-  .sort {
-    margin-right: 30%; }
+    height: 120px;
+    align-items: center; }
+  .sort-and-search {
+    height: 75px;
+    flex-direction: column;
+    align-items: center; }
+  .search input {
+    width: 160px; }
   .main-content-active-filters {
     height: 40px;
     padding: 0 10px 0 30px;
