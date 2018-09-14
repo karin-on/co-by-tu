@@ -15,6 +15,17 @@ class MainContentHeader extends React.Component {
         }
     };
 
+
+    //---------------------- search ---------------------------
+
+    handleSearchChange = (e) => {
+        if(typeof this.props.searchTitles === 'function') {
+            this.props.searchTitles(e.target.value.toLowerCase());
+        }
+    }
+
+
+
     handleClick = (e) => {
         if(typeof this.props.clearFilters === 'function') {
             this.props.clearFilters(e);
@@ -25,8 +36,10 @@ class MainContentHeader extends React.Component {
         return (
             <div className="main-content-header">
 
-                <div className="sort">
-                    <label htmlFor="sort">sortuj wg:
+                <div className="sort-and-search">
+
+                    <div className="sort">
+                        <label className="sort-label" htmlFor="sort">sortuj wg:</label>
                         <div className="custom-select">
                             <select name="sort" id="sort"
                                     onChange={e => this.handleChange(e)}
@@ -37,7 +50,15 @@ class MainContentHeader extends React.Component {
                                 <option value="year">roku produkcji (malejąco)</option>
                             </select>
                         </div>
-                    </label>
+                    </div>
+
+                    <div className="search">
+                        <input type="text"
+                               className="search-input"
+                               placeholder="szukaj po tytule"
+                               onChange={e => this.handleSearchChange(e)}/>
+                    </div>
+
                 </div>
 
                 <button className="clear-filters-btn" onClick={e => this.handleClick(e)}>
