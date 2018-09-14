@@ -48,13 +48,13 @@ The site is designed with RWD approach, desktop-first. In the mobile version I u
 - If you happen to choose a filter which doesn't match any film in my collection at a moment (try "social issues" or "ecology"), an adequate piece information will show up.
 - In case you are fed up with filtering there is a "clear filters" button on the right.
 - You can sort the films if you like, why not! Alphabetically, by rate or year of production (the last two in descending order). The default order is of ID number. While filters are changing the sorting order is being kept. If you want to clear sorting just change the select's value to default.
+- Live search - type in a title you're interested in and check if it's in my database.
 - If you happen somehow to get lost on my website by typing in a link which doesn't exist, you will see a "not found" page.
 
 #### 
 
 ## Plans for the future
 
-- Live search so that you could find a title you're interested in.
 - Pagination
 - The book part - of course
 
