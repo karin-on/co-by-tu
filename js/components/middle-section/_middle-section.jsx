@@ -148,12 +148,11 @@ class MiddleSection extends React.Component {
         let arrayToLoad = [];
         const mainArray = this.state.mainArray;
         const filteredArray = this.state.filteredArray;
-        const searchedArray = this.state.searchedArray;         //!!!!!!!!!
-        // console.log(searchedArray);
+        const searchedArray = this.state.searchedArray;
 
         mainArray.forEach(elem => {
             filteredArray.forEach(item => {
-                searchedArray.forEach(el => {               //!!!!!!!!
+                searchedArray.forEach(el => {
                     if(elem === item && item === el && elem === el) {
                         arrayToLoad.push(elem);
                     }
@@ -162,11 +161,11 @@ class MiddleSection extends React.Component {
         });
 
 
-        // -------------------------------------- sortowanie -------------------------------------
+        // ----------------------------------- sortowanie -------------------------------------
         let key = this.state.sortKey;
 
         if(key === 'rate' || key === 'year') {
-            const sortFilms = (key) => {            //sortowanie - rate, year
+            const sortFilms = (key) => {            //rate, year
                 arrayToLoad.sort((a,b) => {
                     return b[key] - a[key];
                 })
@@ -174,7 +173,7 @@ class MiddleSection extends React.Component {
             sortFilms(key);
 
         } else if (key === 'az') {
-            const sortFilms = (a, b) => {           //sortowanie od A do Z
+            const sortFilms = (a, b) => {           //A-Z
                 let x = a.title.toLowerCase();
                 let y = b.title.toLowerCase();
                 let comparison = 0;
