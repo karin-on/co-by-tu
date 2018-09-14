@@ -43,15 +43,11 @@
   .filters li {
     margin: 7px 0;
   }
-  .subnote {
-    font-size: 12px;
-  }
 
   .loading,
   .no-films-found {
     font-size: 20px;
   }
-
 }
 
 //---------------------------------- 1024 ------------------------------------
@@ -66,7 +62,21 @@
   }
 
   .main-content-header {
-    padding: 0 65px 0 40px;
+    padding: 0 55px 0 30px;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 80px;
+  }
+
+  .sort-and-search {
+    width: 100%;
+    height: 50%;
+    justify-content: space-between;
+    flex-grow: 0;
+  }
+
+  .search input {
+    margin-left: 0;
   }
 
   .about-text {
@@ -90,7 +100,7 @@
   }
 
   .main-content-header {
-    padding: 0 30px 0 40px;
+    padding: 0 15px 0 30px;
   }
 }
 
@@ -148,6 +158,15 @@
 
   .main-content-header {
     padding: 0 55px 0 10px;
+  }
+
+  .sort label {
+    font-size: 14px;
+  }
+
+  .search input {
+    width: 130px;
+    font-size: 14px;
   }
 
   .main-content-active-filters {
@@ -277,7 +296,15 @@
   }
 
   .main-content-header {
-    padding: 0 40px 0 0;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 0;
+    width: 100%;
+    margin: 20px 0 10px 0;
+  }
+
+  .search input {
+    width: 160px;
   }
 
   .film-content {
@@ -324,6 +351,10 @@
 
   .middle-section-intro .container {
     padding: 40px 30px 0 30px;
+  }
+
+  .search input {
+    width: 130px;
   }
 
   .film-content {
@@ -381,16 +412,19 @@
   }
 
   .main-content-header {
-    flex-direction: column;
-    align-items: center;
     padding: 0;
-    width: 100%;
-    height: 80px;
-    margin: 20px 0 10px 0;
+    height: 120px;
+    align-items: center;
   }
 
-  .sort {
-    margin-right: 30%;
+  .sort-and-search {
+    height: 75px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search input {
+    width: 160px;
   }
 
   .main-content-active-filters {

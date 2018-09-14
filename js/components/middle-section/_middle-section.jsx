@@ -149,7 +149,7 @@ class MiddleSection extends React.Component {
         const mainArray = this.state.mainArray;
         const filteredArray = this.state.filteredArray;
         const searchedArray = this.state.searchedArray;         //!!!!!!!!!
-        console.log(searchedArray);
+        // console.log(searchedArray);
 
         mainArray.forEach(elem => {
             filteredArray.forEach(item => {
