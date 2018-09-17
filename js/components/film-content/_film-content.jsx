@@ -8,7 +8,7 @@ class FilmContent extends React.Component {
         super(props);
         this.state = {
             isPopupOpen: false,
-            filmID: ''
+            filmIndex: ''
         }
     }
 
@@ -42,13 +42,15 @@ class FilmContent extends React.Component {
                     <h4 className="film-title">
                         {el.title}
                     </h4>
-                    <p>reż.: <span className="film-director">
+                    <p>reż.:
+                        <span className="film-director">
                         {el.director.length <= 21 ?
                             el.director :
                             el.director.substring(0, 19) + '...'}
                         </span>
                     </p>
-                    <p>rok prod.: <span className="film-prod-year">
+                    <p>rok prod.:
+                        <span className="film-prod-year">
                         {el.year}
                         </span>
                     </p>
