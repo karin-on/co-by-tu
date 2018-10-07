@@ -8,6 +8,10 @@ module.exports = [
         value: 'action'
     },
     {
+        txt: 'thriller',
+        value: 'thriller'
+    },
+    {
         txt: 'komedia',
         value: 'comedy'
     },
@@ -16,12 +20,20 @@ module.exports = [
         value: 'comedy-romance'
     },
     {
+        txt: 'familijny',
+        value: 'family'
+    },
+    {
         txt: 'superbohaterowie',
         value: 'superhero'
     },
     {
-        txt: 'thriller',
-        value: 'thriller'
+        txt: 'fantasy',
+        value: 'fantasy'
+    },
+    {
+        txt: 'sci-fi',
+        value: 'sci-fi'
     },
     {
         txt: 'biografia',
