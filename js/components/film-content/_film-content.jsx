@@ -42,14 +42,14 @@ class FilmContent extends React.Component {
                     <h4 className="film-title">
                         {el.title}
                     </h4>
-                    <p>reż.:
+                    <p>reż.:&nbsp;
                         <span className="film-director">
                         {el.director.length <= 21 ?
                             el.director :
                             el.director.substring(0, 19) + '...'}
                         </span>
                     </p>
-                    <p>rok prod.:
+                    <p>rok prod.:&nbsp;
                         <span className="film-prod-year">
                         {el.year}
                         </span>

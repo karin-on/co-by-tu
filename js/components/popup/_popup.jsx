@@ -43,10 +43,10 @@ class Popup extends React.Component {
                             <h4 className="film-title">
                                 {arrayToLoad[filmIndex].title}
                             </h4>
-                            <p>reż.:
+                            <p>reż.:&nbsp;
                                 <span className="film-director">{arrayToLoad[filmIndex].director}</span>
                             </p>
-                            <p>rok prod.:
+                            <p>rok prod.:&nbsp;
                                 <span className="film-prod-year">{arrayToLoad[filmIndex].year}</span>
                             </p>
                             <p>

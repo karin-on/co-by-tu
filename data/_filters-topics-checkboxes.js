@@ -5,7 +5,7 @@ module.exports = [
     },
     {
         txt: 'rodzina, związki, dzieci',
-        value: 'family'
+        value: 'relations'
     },
     {
         txt: 'seksualność',
