@@ -7,11 +7,11 @@ class PageHeader extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            ulClass: window.matchMedia('(max-width: 641px)').matches
+            ulClass: window.matchMedia('(max-width: 640px)').matches
                 ? 'mob-nav-list'
                 : 'page-nav-list'
         };
-        this.media = window.matchMedia('(max-width: 641px)');
+        this.media = window.matchMedia('(max-width: 640px)');
     }
 
     componentDidMount() {

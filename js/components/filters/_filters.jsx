@@ -84,7 +84,6 @@ class Filters extends React.Component {
                 </h3>
                 <button className={`mob-filters-show-btn ${openBtnClass}`} onClick={this.toggleFilters}>
                     <span></span>
-                    <span></span>
                 </button>
 
                 {forms}

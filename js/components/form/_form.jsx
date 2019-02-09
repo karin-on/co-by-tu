@@ -17,7 +17,6 @@ class Form extends React.Component {
         this.setState({
             boxesChanged: [...this.state.boxesChanged, e.target],
         });
-
     };
 
     handleSubmit = (e) => {

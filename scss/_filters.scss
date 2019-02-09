@@ -16,51 +16,45 @@
 }
 
 .filters-title {
-  margin-top: 2px;
+  //margin-top: 2px;
   margin-bottom: 45px;
   border-bottom: 1px solid black;
   display: inline-block;
+  font-weight: 700;
 }
 
 //-------------------------------- mobile filters -------------------------------
 .mob-filters-show-btn {
   display: none;
-  width: 40px;
-  height: 40px;
+  width: 55px;
+  height: 35px;
   background: transparent;
   border: none;
   cursor: pointer;
   position: relative;
+  overflow: hidden;
 
   &.opened {
-    margin-top: 10px;
     transform: rotate(-180deg);
   }
 
   span {
     display: inline-block;
-    background-color: black;
-    height: 1px;
-    width: 30px;
     position: absolute;
-
-    &:first-child {
-      transform: rotate(45deg);
-      top: 20px;
-      left: -10px;
-    }
-
-    &:last-child {
-      transform: rotate(-45deg);
-      top: 20px;
-      left: 12px;
-    }
+    top: 10%;
+    left: 50%;
+    height: 40px;
+    width: 40px;
+    border-bottom: 1px solid $color-black;
+    border-right: 1px solid $color-black;
+    transform: translate(-50%, -50%) rotate(45deg);
   }
 
   &:hover,
   &:active {
     span {
-      background-color: $color-blue;
+      border-bottom: 1px solid $color-blue;
+      border-right: 1px solid $color-blue;
     }
   }
 
@@ -71,12 +65,13 @@
   }
 }
 
+//-------------------------------
 .filters-forms {
   transition: 0.5s all;
 }
 
 .filters-section {
-  padding: 10px;
+  padding: 10px 0;
   transition: 0.5s all;
 }
 
@@ -85,7 +80,7 @@
 }
 
 .filters-list {
-  padding: 10px 5px;
+  padding: 10px 0;
 }
 
 .filters li {
@@ -110,7 +105,6 @@
 }
 
 .filters-checkbox {
-
   input + span {
     flex-shrink: 0;
     margin-right: 5px;
