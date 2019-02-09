@@ -1,20 +1,20 @@
-var path = require("path");
-var Html = require('html-webpack-plugin');
-var MiniCSS = require("mini-css-extract-plugin");
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
+const Html = require('html-webpack-plugin');
+const MiniCss = require('mini-css-extract-plugin');
 
-
-module.exports = function(env) {
+module.exports = function (env) {
     const isDev = env && env.dev ? true : false;
-    console.log(isDev, 'isDev');
+    console.log('isDev?', isDev);
 
     const config = {
-        entry: "./js/app.jsx",
+        devtool: 'source-map',      //!!!!!!!!! :D
+        entry: './js/app.jsx',
         output: {
-            filename: "out.js",
-            path: path.resolve(__dirname, "docs")
+            filename: 'out.js',
+            path: path.resolve(__dirname, 'docs')
         },
         mode: isDev ? 'development' : 'production',
+        // devServer: { inline: true },
         module: {
             rules: [
                 {
@@ -23,30 +23,32 @@ module.exports = function(env) {
                     use: {
                         loader: 'babel-loader',
                         options: {
-                            presets: ['es2015', "stage-2", "react"]
+                            presets: [
+                                "@babel/env",
+                                "@babel/react",
+                                {
+                                    'plugins': ['@babel/plugin-proposal-class-properties']
+                                }
+                            ]
                         }
                     }
                 },
                 {
                     test: /\.css$/,
-                    use: [
-                        isDev ? 'style-loader' : MiniCSS.loader,
-                        'css-loader'
-                    ]
+                    use: [isDev ? 'style-loader' : MiniCss.loader, 'css-loader']
                 },
                 {
                     test: /\.scss$/,
                     use: [
-                        isDev ? 'style-loader' : MiniCSS.loader,
+                        isDev ? 'style-loader' : MiniCss.loader,
                         'css-loader',
                         {
                             loader: 'postcss-loader',
                             options: {
-                                plugins: () => [
-                                    new require('autoprefixer')({
-                                        browsers: [
-                                            'ie 11' // tu definiujemy wsparcie dla przegladarek w css
-                                        ]
+                                ident: 'postcss',
+                                plugins: [
+                                    require('autoprefixer')({
+                                        'browsers': ['> 1%', 'last 2 versions']
                                     })
                                 ]
                             }
@@ -55,26 +57,15 @@ module.exports = function(env) {
                     ]
                 },
                 {
-                    test: /\.(jpg|jpeg|gif|png|csv)$/,
-                    use: {
-                        loader: 'file-loader?outputPath=images/',
-                        options: {
-                            name: '[name].[ext]',
-                            useRelativePath: true
-                        }
-                    }
-                },
-                {
-                    test: /\.(eot|ttf|woff|woff2)$/,
+                    test: /\.(png|jpg|jpeg|gif)$/,
                     use: {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            publicPath: 'fonts',
-                            outputPath: 'fonts'
-                        }
-                    }
-                }
+                            outputPath: 'images',
+                        },
+                    },
+                },
             ]
         },
         plugins: [
@@ -82,15 +73,11 @@ module.exports = function(env) {
                 filename: 'index.html',
                 template: './index.html'
             }),
-            new MiniCSS({
-                filename: "app.css",
-            }),
-            new CopyWebpackPlugin([
-                { from: 'images', to: 'images' },
-            ])
-
+            new MiniCss({
+                filename: 'style.css'
+            })
         ]
     }
 
     return config;
-}
+};
