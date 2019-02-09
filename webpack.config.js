@@ -25,13 +25,13 @@ module.exports = function (env) {
                     use: {
                         loader: 'babel-loader',
                         options: {
-                          presets: [
-                              "@babel/env", 
-                              "@babel/react",
-                              {
-                                  'plugins': ['@babel/plugin-proposal-class-properties']
-                              }
-                          ]
+                            presets: [
+                                "@babel/env",
+                                "@babel/react",
+                                {
+                                    'plugins': ['@babel/plugin-proposal-class-properties']
+                                }
+                            ]
                         }
                     }
                 },
@@ -78,7 +78,7 @@ module.exports = function (env) {
             new MiniCss({
                 filename: 'style.css'
             }),
-            new Clean(['docs']),
+            new Clean(isDev ? [] : ['docs']),
             new Copy([
                 { from: 'images', to: 'images' }
             ])
