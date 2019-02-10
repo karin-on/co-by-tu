@@ -59,13 +59,13 @@ class PageHeader extends React.Component {
                     </h1>
 
                     <nav className="page-nav">
-                        
-                        <ul className={this.state.ulClass}>
 
+                        <ul className={this.state.ulClass}>
                             <button className="mob-nav-hide-btn" onClick={this.hideMobMenu}>
                                 <span></span>
                                 <span></span>
                             </button>
+
 
                             <li><Link to="/">intro</Link></li>
                             <li><Link to="/main">filmy</Link></li>

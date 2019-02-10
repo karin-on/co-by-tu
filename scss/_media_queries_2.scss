@@ -92,6 +92,37 @@
   .film-card {
     width: 32.7%;
   }
+
+  .film-card-details {
+    width: 90%;
+    max-width: 380px;
+    height: 590px;
+    max-height: 90%;
+    overflow: auto;
+  }
+
+  .film-card-details-middle {
+    h4 {
+      font-weight: 400;
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+
+  .film-poster-details--holder {
+    width: 50%;
+    padding-bottom: 74%;            //????????????????
+    margin-right: 20px;
+  }
+
+  .film-card-details-bottom {
+    font-size: 16px;
+    line-height: 1.3;
+  }
 }
 
 
@@ -192,7 +223,7 @@
   }
 
   .search {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
   }
 
   .search input {

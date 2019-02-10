@@ -35,8 +35,10 @@ class Popup extends React.Component {
 
 
                     <div className="film-card-details-middle">
-                        <div className="film-poster-details"
-                             style={{backgroundImage: `url(${arrayToLoad[filmIndex].poster})`}}>
+                        <div className="film-poster-details--holder">
+                            <div className="film-poster-details"
+                                 style={{backgroundImage: `url(${arrayToLoad[filmIndex].poster})`}}>
+                            </div>
                         </div>
 
                         <div className="film-description-details">
