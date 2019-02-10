@@ -68,11 +68,11 @@ The site is designed with RWD approach, desktop-first. In the mobile version I u
 
 ## Previews
 
-![](./images/co-by-tu_prev1.png)
+![](images/co-by-tu_prev1.png)
 
-![](./images/co-by-tu_prev2.png)
+![](images/co-by-tu_prev2.png)
 
-![](./images/co-by-tu_prev3.png)
+![](images/co-by-tu_prev3.png)
 
-![](./images/co-by-tu_prev4.png) ![](./images/co-by-tu_prev5.png) ![](./images/co-by-tu_prev6.png) ![](./images/co-by-tu_prev7.png)
+![](images/co-by-tu_prev4.png) ![](images/co-by-tu_prev5.png) ![](images/co-by-tu_prev6.png) ![](images/co-by-tu_prev7.png)
 

@@ -55,7 +55,7 @@ class FilmContent extends React.Component {
                         </span>
                     </p>
                     <p>
-                        <i className="fa fa-star" aria-hidden="true"></i>
+                        <i className="fas fa-star" aria-hidden="true"></i>
                         <span className="film-rate">
                             {` ${el.rate}`}
                         </span>

@@ -48,6 +48,7 @@ class MainContentHeader extends React.Component {
                                 <option value="rate">oceny (malejąco)</option>
                                 <option value="year">roku produkcji (malejąco)</option>
                             </select>
+                            <span className="custom-select__arrow-down">&#x25BC;</span>
                         </div>
                     </div>
 
