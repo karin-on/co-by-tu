@@ -11,9 +11,12 @@ class Filters extends React.Component {
         super(props);
         this.state = {
             chosenFilters: [],
-            showFilters: false,
+            showFilters: !(window.matchMedia('(max-width: 640px)').matches),
+            filtersTitle: window.matchMedia('(max-width: 640px)').matches
+                ? 'rozwiń filtry'
+                : 'filtruj'
         };
-        this.media = window.matchMedia('(max-width: 641px)');
+        this.media = window.matchMedia('(max-width: 640px)');
     }
 
     componentDidMount() {
@@ -27,7 +30,13 @@ class Filters extends React.Component {
     mediaListener = (m) => {
         if (this.media.matches) {
             this.setState({
-                showFilters: false
+                showFilters: false,
+                filtersTitle: 'rozwiń filtry'
+            })
+        } else {
+            this.setState({
+                showFilters: true,
+                filtersTitle: 'filtruj'
             })
         }
     };
@@ -80,7 +89,7 @@ class Filters extends React.Component {
         return (
             <div className="filters">
                 <h3 className="filters-title">
-                    filtruj
+                    {this.state.filtersTitle}
                 </h3>
                 <button className={`mob-filters-show-btn ${openBtnClass}`} onClick={this.toggleFilters}>
                     <span></span>

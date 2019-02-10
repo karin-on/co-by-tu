@@ -62,7 +62,7 @@ class MainContentHeader extends React.Component {
                 </div>
 
                 <button className="clear-filters-btn" onClick={e => this.handleClick(e)}>
-                    wyczyść filtry
+                    &times; wyczyść filtry
                 </button>
             </div>
         );

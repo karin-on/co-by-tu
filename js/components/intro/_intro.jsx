@@ -10,21 +10,21 @@ class Intro extends React.Component {
         return (
             <section className="middle-section-intro">
                 <div className="container">
-                    <div className="intro-watch">
-                        <h1 className="intro-watch-title">
+                    <div className="intro-part">
+                        <h1 className="intro-part-title">
                             co by tu... obejrzeć?
                         </h1>
-                        <p className="intro-watch-text">
+                        <p className="intro-part-text">
                             hej! witaj po dobrej stronie kina. nie znajdziesz tu złych filmów, bo szkoda na nie Twojego i mojego czasu ;) w pakiecie dużo customowych filtrów. have fun!
                         </p>
                         <Link to="/main" className="intro-link">wchodzę w to!</Link>
                     </div>
 
-                    <div className="intro-read">
-                        <h1 className="intro-read-title">
+                    <div className="intro-part">
+                        <h1 className="intro-part-title">
                             co by tu... przeczytać?
                         </h1>
-                        <p className="intro-read-text">
+                        <p className="intro-part-text">
                             pending...
                         </p>
                     </div>
