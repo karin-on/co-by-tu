@@ -186,7 +186,8 @@ body {
     font-weight: 300;
     width: 35px;
     margin: 0 10px;
-    font-size: 12px; }
+    font-size: 12px;
+    -webkit-appearance: none; }
     .filters-button-row input:hover {
       border: 1px solid #00e4ff; }
     .filters-button-row input:active {
@@ -395,7 +396,8 @@ body {
   font-weight: 300;
   color: black;
   padding-left: 8px;
-  margin-left: 30px; }
+  margin-left: 30px;
+  -webkit-appearance: none; }
   .search input::-webkit-input-placeholder {
     color: rgba(0, 0, 0, 0.5); }
   .search input:-ms-input-placeholder {
