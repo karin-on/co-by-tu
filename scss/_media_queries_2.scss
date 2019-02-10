@@ -48,6 +48,10 @@
 }
 
 @media (max-width: 800px) {
+  .middle-section-intro {
+    padding-top: 15%;
+  }
+
   .intro-part {
     width: 100%;
   }
@@ -90,8 +94,8 @@
   }
 }
 
-@media (max-width: 640px) {
 
+@media (max-width: 640px) {
   .mob-nav-hide-btn {
     display: block;
   }
@@ -145,6 +149,14 @@
 }
 
 @media (max-width: 550px) {
+  .intro-part-title {
+    font-size: 35px;
+  }
+
+  .intro-link {
+    padding: 12px 35px 15px;
+  }
+
   .film-card {
     width: 48%;
     margin-right: inherit;
@@ -152,12 +164,24 @@
 }
 
 @media (max-width: 450px) {
+  .middle-section-intro .container {
+    padding: 0 15px;
+  }
+
+  .intro-part {
+    padding: 0;
+  }
+
   .middle-section {
     padding: 130px 0 100px 0;
   }
 }
 
 @media (max-width: 400px) {
+  .intro-part-title {
+    font-size: 30px;
+  }
+
   .main-content-header {
     display: block;
     text-align: center;
@@ -185,5 +209,28 @@
 
   .film-card:last-child {
     margin-right: initial;
+  }
+}
+
+
+@media (max-width: 1024px) and (orientation: portrait) {
+  .middle-section-intro {
+    padding-top: 15%;
+  }
+
+  .intro-part {
+    width: 100%;
+  }
+
+  .intro-part:first-child {
+    margin-bottom: 100px;
+  }
+
+  .intro-part-title {
+    margin-bottom: 30px;
+  }
+
+  .intro-part-text {
+    margin-bottom: 40px;
   }
 }
