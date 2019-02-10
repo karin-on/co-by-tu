@@ -45,6 +45,10 @@
   .film-card {
     width: 24.4%;
   }
+
+  .middle-section-about .container {
+    padding: 180px 30px 0 30px;
+  }
 }
 
 @media (max-width: 800px) {
@@ -182,6 +186,15 @@
   .film-card .film-description {
     padding: 3px;
   }
+
+  .middle-section-about .container {
+    padding: 180px 0 0 0;
+  }
+
+  .about-text {
+    padding: 0 30px;
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 550px) {
@@ -196,6 +209,10 @@
   .film-card {
     width: 48%;
     margin-right: inherit;
+  }
+
+  .middle-section-about .container {
+    padding: 150px 0 0 0;
   }
 }
 
