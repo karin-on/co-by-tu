@@ -12,8 +12,7 @@ class Form extends React.Component {
         }
     }
 
-    handleChange = (e) => {
-        //sprawdzenie, czy checkbox był kiknięty
+    handleClick = (e) => {
         this.setState({
             boxesChanged: [...this.state.boxesChanged, e.target],
         });
@@ -52,7 +51,6 @@ class Form extends React.Component {
 
             e.target.reset();
         }
-
     };
 
     render() {
@@ -62,7 +60,7 @@ class Form extends React.Component {
                     <input type="checkbox"
                            name={el.txt}
                            value={el.value}
-                           onChange={(e) => this.handleChange(e)}/>
+                           onClick={(e) => this.handleClick(e)}/>
                     <span></span>
                     {el.txt}
                 </label>

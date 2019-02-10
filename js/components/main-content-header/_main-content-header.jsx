@@ -25,7 +25,6 @@ class MainContentHeader extends React.Component {
     }
 
 
-
     handleClick = (e) => {
         if(typeof this.props.clearFilters === 'function') {
             this.props.clearFilters(e);
