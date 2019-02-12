@@ -8,10 +8,10 @@ On the Intro page you are going to see also another section - Feeling like... re
 
 ## Getting Started
 
-To run this project you will need to have **Node.js** and **Webpack** installed on your local machine. After forking and cloning the repo please run these commands in your command line:
+To run this project you will need to have **Node.js** installed on your local machine. After forking and cloning the repo please run these commands in your command line:
 
 ```
-npm install
+npm i
 ```
 
 and
